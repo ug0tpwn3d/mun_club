@@ -30,13 +30,27 @@ mun/
 │   ├── schedule.html
 │   ├── resources.html
 │   ├── registration.html
+│   ├── faq.html
+│   ├── media.html
 │   └── contact.html
 │
+├── conference/
+│   └── arambh-mun-2026/
+│       └── index.html
+│
 ├── resources/
-│   ├── first-mun.html
 │   ├── rules.html
 │   ├── position-paper.html
-│   └── resolution-writing.html
+│   ├── resolution-writing.html
+│   └── articles/
+│       ├── what-is-mun.html
+│       ├── first-mun.html
+│       ├── public-speaking.html
+│       ├── crisis-committee.html
+│       └── aippm.html
+│
+├── directory/
+│   └── index.html
 │
 ├── assets/
 │   ├── images/
@@ -47,41 +61,28 @@ mun/
 │   │   └── gallery/
 │   │
 │   ├── icons/
+│   │   └── club_logo.jpeg
 │   └── documents/
 │       ├── brochures/
 │       ├── background-guides/
 │       └── policies/
 │
 ├── css/
-│   ├── main.css
 │   ├── variables.css
-│   ├── components.css
-│   ├── navbar.css
-│   ├── footer.css
-│   ├── buttons.css
-│   ├── forms.css
-│   ├── modal.css
 │   └── pages/
-│       ├── home.css
-│       ├── committees.css
-│       ├── resources.css
-│       └── registration.css
 │
 ├── js/
-│   ├── main.js
-│   ├── navbar.js
-│   ├── animations.js
-│   ├── modal.js
-│   ├── forms.js
 │   └── pages/
-│       ├── committees.js
-│       └── registration.js
 │
 ├── data/
+│   ├── site.js
 │   ├── conference.js
 │   ├── committees.js
 │   ├── team.js
-│   └── schedule.js
+│   ├── schedule.js
+│   ├── faq.js
+│   ├── resources.js
+│   └── directory.js
 │
 ├── Design.md
 ├── Requirements.md

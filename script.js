@@ -52,13 +52,12 @@ gsap.to('.hero-title', {
 
 
 
-// Infinite loops for ticker and marquee
-['tickerTrack', 'marqueeTrack'].forEach((id) => {
-  const track = document.getElementById(id);
-  if (!track) return;
-  track.innerHTML += track.innerHTML + track.innerHTML;
-  gsap.to(track, { xPercent: -33.333, duration: id === 'tickerTrack' ? 30 : 22, repeat: -1, ease: 'none' });
-});
+// Infinite loops for marquee
+const marqueeTrack = document.getElementById('marqueeTrack');
+if (marqueeTrack) {
+  marqueeTrack.innerHTML += marqueeTrack.innerHTML + marqueeTrack.innerHTML;
+  gsap.to(marqueeTrack, { xPercent: -33.333, duration: 22, repeat: -1, ease: 'none' });
+}
 
 // Manifesto: word-by-word scrub reveal
 const mt = document.getElementById('manifestoText');
