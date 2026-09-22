@@ -837,6 +837,11 @@ a {
     padding: 18vh 8vw;
 }
 
+.secretariat--standalone {
+    padding-top: 12rem;
+    min-height: calc(100vh - 120px);
+}
+
 .secretariat-title {
     font-family: var(--font-serif);
     font-size: clamp(2.4rem, 6vw, 5rem);
@@ -1006,6 +1011,11 @@ a {
     padding: 22vh 8vw;
     text-align: center;
     overflow: hidden;
+}
+
+.register--standalone {
+    padding-top: 12rem;
+    min-height: calc(100vh - 120px);
 }
 
 .register-giant {

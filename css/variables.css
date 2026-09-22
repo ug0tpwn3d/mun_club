@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+
+/* ============ Brand tokens (only place hex codes exist) ============ */
+:root {
+    --black: #0a0a0b;
+    --black-2: #131316;
+    --orange: #ff6a1a;
+    --orange-soft: #ff8c42;
+    --cream: #f4ede1;
+    --cream-dim: #b8b0a1;
+    --white: #ffffff;
+    --saffron: #ff9933;
+    --green: #138808;
+    --line-soft: color-mix(in srgb, var(--cream) 12%, transparent);
+    --line-orange: color-mix(in srgb, var(--orange) 45%, transparent);
+    --font-serif: 'Fraunces', serif;
+    --font-sans: 'Space Grotesk', sans-serif;
+    /* Active Logo Font (comment out to revert to previous font): */
+    --font-logo: "Covered By Your Grace", cursive;
+    /* Previous Logo Font fallback:
+    --font-logo: 'Fraunces', serif;
+    */
+    --ease-out: cubic-bezier(.6, 0, .2, 1);
+}
