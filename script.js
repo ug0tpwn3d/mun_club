@@ -155,12 +155,15 @@ if (outreachEl && conferenceDateEl) {
 }
 
 // Navbar background on scroll
-ScrollTrigger.create({
-  start: 'top -50',
-  onUpdate: (self) => {
-    document.querySelector('.nav').classList.toggle('nav--scrolled', self.scroll() > 50);
-  },
-});
+// Navbar scroll-toggle — home only (inner pages are always scrolled)
+if (isHome) {
+  ScrollTrigger.create({
+    start: 'top -50',
+    onUpdate: (self) => {
+      document.querySelector('.nav').classList.toggle('nav--scrolled', self.scroll() > 50);
+    },
+  });
+}
 
 // Secretariat: seamless subtle reveal
 const secCards = document.querySelectorAll('.sec-card');
