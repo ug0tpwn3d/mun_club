@@ -38,10 +38,11 @@ if (!isHome && nav) {
   nav.appendChild(btn);
   const links = nav.querySelector('.nav-links');
   btn.addEventListener('click', () => {
-    btn.classList.toggle('open');
+    const isOpen = btn.classList.toggle('open');
     if (links) {
-      links.classList.toggle('mobile-open');
-      document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+      links.classList.toggle('mobile-open', isOpen);
+      nav.classList.toggle('nav--mobile-open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     }
   });
   // Close on nav link click
@@ -50,10 +51,20 @@ if (!isHome && nav) {
       a.addEventListener('click', () => {
         btn.classList.remove('open');
         links.classList.remove('mobile-open');
+        nav.classList.remove('nav--mobile-open');
         document.body.style.overflow = '';
       });
     });
   }
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && btn.classList.contains('open')) {
+      btn.classList.remove('open');
+      if (links) links.classList.remove('mobile-open');
+      nav.classList.remove('nav--mobile-open');
+      document.body.style.overflow = '';
+    }
+  });
 })();
 
 // Smooth anchor navigation
