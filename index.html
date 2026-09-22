@@ -46,9 +46,9 @@
             <li class="nav-item-dropdown">
                 <a href="/pages/about.html" class="dropdown-trigger">About <span class="dropdown-caret">▾</span></a>
                 <div class="nav-dropdown-menu">
-                    <a href="/pages/about.html">Manifesto & Mission</a>
+                    <a href="/pages/about.html">Manifesto &amp; Mission</a>
                     <a href="/pages/secretariat.html">Secretariat</a>
-                    <a href="/pages/about.html#leadership">Leadership Message</a>
+                    <a href="/pages/leadership.html">Leadership Message</a>
                 </div>
             </li>
             <li class="nav-item-dropdown">
@@ -148,6 +148,9 @@
             </div>
             <div class="committee-track" id="committeeTrack">
 
+                <!-- COMMITTEE CARDS — comment out individual cards when not active for the conference -->
+
+                <!-- CARD: UNGA DISEC (Beginner) -->
                 <article class="comm-card" data-num="01">
                     <div>
                         <div class="comm-agency">United Nations · Beginner</div>
@@ -158,7 +161,9 @@
                     </div>
                     <a class="comm-register" href="#register">Allocate Portfolio</a>
                 </article>
+                <!-- /CARD: UNGA DISEC -->
 
+                <!-- CARD: UNHRC (Intermediate) -->
                 <article class="comm-card" data-num="02">
                     <div>
                         <div class="comm-agency">United Nations · Intermediate</div>
@@ -170,7 +175,9 @@
                     </div>
                     <a class="comm-register" href="#register">Allocate Portfolio</a>
                 </article>
+                <!-- /CARD: UNHRC -->
 
+                <!-- CARD: UNSC 1971 (Advanced) -->
                 <article class="comm-card" data-num="03">
                     <div>
                         <div class="comm-agency">Crisis Committee · Advanced</div>
@@ -182,7 +189,9 @@
                     </div>
                     <a class="comm-register" href="#register">Allocate Portfolio</a>
                 </article>
+                <!-- /CARD: UNSC 1971 -->
 
+                <!-- CARD: Lok Sabha (All Levels) -->
                 <article class="comm-card" data-num="04">
                     <div>
                         <div class="comm-agency">Indian Context · All Levels</div>
@@ -193,7 +202,9 @@
                     </div>
                     <a class="comm-register" href="#register">Allocate Portfolio</a>
                 </article>
+                <!-- /CARD: Lok Sabha -->
 
+                <!-- CARD: Intergalactic Senate (Expert) -->
                 <article class="comm-card" data-num="05">
                     <div>
                         <div class="comm-agency">Futuristic · Expert</div>
@@ -205,6 +216,7 @@
                     </div>
                     <a class="comm-register" href="#register">Allocate Portfolio</a>
                 </article>
+                <!-- /CARD: Intergalactic Senate -->
 
             </div>
         </div>
@@ -214,7 +226,7 @@
     <section class="conference" id="conference">
         <div class="conference-grid">
             <div class="conference-sticky">
-                <div class="conference-date">ARAMBH<br>MUN<br><span>'26</span></div>
+                <div class="conference-date" id="conferenceDateText">ARAMBH<br>MUN<br><span>'26</span></div>
             </div>
             <div class="conference-list">
                 <div class="section-label">03 — Flagship Conference</div>
@@ -240,19 +252,19 @@
                         socials on day two.</p>
                 </div>
 
-                <div class="conf-item">
+                <!-- Outreach item — ARAMBH MUN text turns orange when this scrolls into view -->
+                <div class="conf-item" id="confOutreach">
                     <div class="conf-edition">Outreach</div>
                     <h4>MUN Mentorship Circles.</h4>
                     <p>Weekly Saturday sessions on ROP, position papers, and public speaking — free for first-time
-                        delegates from any college in NCR.</p>
+                        delegates from any college in Rajasthan.</p>
                 </div>
 
                 <div class="conf-item">
                     <div class="conf-edition">Legacy</div>
                     <h4>Nine editions of firsts.</h4>
-                    <p>From a classroom of 30 in 2023 to North West India's largest student-run MUN Club . Our alumni
-                        now work in
-                        various places of national importance.</p>
+                    <p>From a classroom of 30 in 2023 to North West India's largest student-run MUN Club. Our alumni
+                        now work in various places of national importance.</p>
                 </div>
             </div>
         </div>
@@ -290,9 +302,12 @@
             </div>
         </div>
 
+        <!-- STUDENT CO-ORDINATORS — comment out this entire block when not displaying student team -->
         <div class="sec-group">
             <h3 class="sec-group-title">Student Co-ordinators</h3>
             <div class="sec-grid sec-grid--row">
+
+                <!-- STUDENT: Nishant Kumar -->
                 <article class="sec-card">
                     <div class="sec-flag sec-flag--cream"></div>
                     <div class="sec-photo-wrap">
@@ -303,7 +318,9 @@
                     <div class="sec-pos">V <sup>th</sup> Sem , CSE Department</div>
                     <p class="sec-quote">"Every portfolio is a passport. Use it well."</p>
                 </article>
+                <!-- /STUDENT: Nishant Kumar -->
 
+                <!-- STUDENT: Keshav Saini -->
                 <article class="sec-card">
                     <div class="sec-flag sec-flag--saffron"></div>
                     <div class="sec-photo-wrap">
@@ -314,7 +331,9 @@
                     <div class="sec-pos">V <sup>th</sup> Sem , IT Department</div>
                     <p class="sec-quote">"History doesn't repeat, but it does rhyme — and I write the rhymes."</p>
                 </article>
+                <!-- /STUDENT: Keshav Saini -->
 
+                <!-- STUDENT: Shivansh Dwivedi -->
                 <article class="sec-card">
                     <div class="sec-flag sec-flag--gold"></div>
                     <div class="sec-photo-wrap">
@@ -325,7 +344,9 @@
                     <div class="sec-pos">III <sup>rd</sup> Sem , IT Department</div>
                     <p class="sec-quote">"Never doubt that you are valuable and capable of changing the world."</p>
                 </article>
+                <!-- /STUDENT: Shivansh Dwivedi -->
 
+                <!-- STUDENT: Ronak Dev -->
                 <article class="sec-card">
                     <div class="sec-flag sec-flag--orange"></div>
                     <div class="sec-photo-wrap">
@@ -336,8 +357,12 @@
                     <div class="sec-pos">III <sup>rd</sup> Sem , Mech Department</div>
                     <p class="sec-quote">"The ink may be imaginary, but the words change the world."</p>
                 </article>
+                <!-- /STUDENT: Ronak Dev -->
+
             </div>
         </div>
+        <!-- /STUDENT CO-ORDINATORS -->
+
     </section>
 
     <!-- Registration -->

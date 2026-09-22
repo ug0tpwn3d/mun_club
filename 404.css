@@ -9,11 +9,16 @@
 }
 
 .error-body .nav {
-    top: 0;
+    top: 1.85rem;
     background: color-mix(in srgb, var(--black) 85%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line-soft);
+}
+
+/* For pages like 404.html that intentionally do not have a ticker */
+.error-body:not(:has(.ticker)) .nav {
+    top: 0;
 }
 
 .error-container {

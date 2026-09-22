@@ -7,6 +7,31 @@ lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((t) => lenis.raf(t * 1000));
 gsap.ticker.lagSmoothing(0);
 
+// Inject hamburger toggle into nav (avoids editing every HTML file)
+(function () {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const btn = document.createElement('button');
+  btn.className = 'nav-toggle';
+  btn.setAttribute('aria-label', 'Toggle navigation');
+  btn.innerHTML = '<span></span><span></span><span></span>';
+  nav.appendChild(btn);
+  const links = nav.querySelector('.nav-links');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    links.classList.toggle('mobile-open');
+    document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+  // Close on nav link click
+  links && links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('open');
+      links.classList.remove('mobile-open');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
 // Smooth anchor navigation
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener('click', (e) => {
@@ -76,17 +101,19 @@ document.querySelectorAll('[data-count]').forEach((el) => {
   });
 });
 
-// Committees: pinned horizontal scroll
+// Committees: pinned horizontal scroll (desktop only)
 const track = document.getElementById('committeeTrack');
-const getScroll = () => track.scrollWidth - innerWidth;
-gsap.to(track, {
-  x: () => -getScroll(), ease: 'none',
-  scrollTrigger: {
-    trigger: '.committees', start: 'top top',
-    end: () => '+=' + getScroll(),
-    pin: true, scrub: 1, invalidateOnRefresh: true,
-  },
-});
+if (track && window.innerWidth > 768) {
+  const getScroll = () => track.scrollWidth - innerWidth;
+  gsap.to(track, {
+    x: () => -getScroll(), ease: 'none',
+    scrollTrigger: {
+      trigger: '.committees', start: 'top top',
+      end: () => '+=' + getScroll(),
+      pin: true, scrub: 1, invalidateOnRefresh: true,
+    },
+  });
+}
 
 // Committee cards: subtle 3D tilt on hover
 document.querySelectorAll('.comm-card').forEach((card) => {
@@ -101,13 +128,22 @@ document.querySelectorAll('.comm-card').forEach((card) => {
   card.addEventListener('mouseleave', () => gsap.to(card, { rotationX: 0, rotationY: 0, duration: 0.6 }));
 });
 
-// Conference: outline date fills with orange as you scroll
-gsap.fromTo('.conference-date',
-  { color: 'transparent' },
-  {
-    color: 'var(--orange)', ease: 'none',
-    scrollTrigger: { trigger: '.conference', start: 'top 60%', end: 'bottom 80%', scrub: true },
-  });
+// Conference: ARAMBH MUN text fills orange when Outreach section enters view
+const outreachEl = document.getElementById('confOutreach');
+const conferenceDateEl = document.querySelector('.conference-date');
+if (outreachEl && conferenceDateEl) {
+  gsap.fromTo(conferenceDateEl,
+    { color: 'transparent' },
+    {
+      color: 'var(--orange)', ease: 'none',
+      scrollTrigger: {
+        trigger: outreachEl,
+        start: 'top 65%',
+        end: 'bottom 30%',
+        scrub: true,
+      },
+    });
+}
 
 // Navbar background on scroll
 ScrollTrigger.create({
@@ -118,25 +154,34 @@ ScrollTrigger.create({
 });
 
 // Secretariat: seamless subtle reveal
-gsap.from('.sec-card', {
-  y: 30, opacity: 0,
-  duration: 0.6, stagger: 0.08, ease: 'power2.out',
-  scrollTrigger: { trigger: '.secretariat', start: 'top 80%', once: true },
-});
+const secCards = document.querySelectorAll('.sec-card');
+if (secCards.length) {
+  gsap.from(secCards, {
+    y: 30, opacity: 0,
+    duration: 0.6, stagger: 0.08, ease: 'power2.out',
+    scrollTrigger: { trigger: '.secretariat', start: 'top 80%', once: true },
+  });
+}
 
 // Registration section entrance
-gsap.from('.register-giant, .register-form', {
-  y: 90, opacity: 0, stagger: 0.15, duration: 1, ease: 'power4.out',
-  scrollTrigger: { trigger: '.register', start: 'top 75%', once: true },
-});
+const registerEls = document.querySelectorAll('.register-giant, .register-form');
+if (registerEls.length) {
+  gsap.from(registerEls, {
+    y: 90, opacity: 0, stagger: 0.15, duration: 1, ease: 'power4.out',
+    scrollTrigger: { trigger: '.register', start: 'top 75%', once: true },
+  });
+}
 
 // Registration form: fake submit with success note
-document.getElementById('registerForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const note = document.getElementById('formNote');
-  note.textContent = 'Portfolio request received — check your inbox for confirmation.';
-  e.target.reset();
-});
+const regForm = document.getElementById('registerForm');
+if (regForm) {
+  regForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const note = document.getElementById('formNote');
+    note.textContent = 'Portfolio request received — check your inbox for confirmation.';
+    e.target.reset();
+  });
+}
 
 // Section labels fade in
 document.querySelectorAll('.section-label').forEach((l) => {
