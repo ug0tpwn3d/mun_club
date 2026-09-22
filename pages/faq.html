@@ -5,12 +5,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequently Asked Questions — SKIT MUN CLUB</title>
-    <meta name="description" content="Answers to common queries regarding Model United Nations, delegate preparation, committee allocations, registration fees, and code of conduct at SKIT MUN CLUB.">
+    <meta name="description"
+        content="Answers to common queries regarding Model United Nations, delegate preparation, committee allocations, registration fees, and code of conduct at SKIT MUN CLUB.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/404.css">
+    <style>
+        /* ── Accordion ── */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 3rem;
+            border: 1px solid var(--line-soft);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-trigger {
+            width: 100%;
+            background: var(--black-2);
+            border: none;
+            color: var(--cream);
+            padding: 1.4rem 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            cursor: pointer;
+            text-align: left;
+            transition: background .2s;
+        }
+
+        .faq-trigger:hover {
+            background: color-mix(in srgb, var(--orange) 6%, var(--black-2));
+        }
+
+        .faq-trigger[aria-expanded="true"] {
+            background: color-mix(in srgb, var(--orange) 8%, var(--black-2));
+        }
+
+        .faq-trigger-inner {
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .faq-tag {
+            font-size: .55rem;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .faq-question {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.3;
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--line-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .3s var(--ease-out), border-color .2s;
+            color: var(--orange);
+            font-size: .7rem;
+        }
+
+        .faq-trigger[aria-expanded="true"] .faq-icon {
+            transform: rotate(45deg);
+            border-color: var(--orange);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s var(--ease-out);
+            background: var(--black-2);
+        }
+
+        .faq-body-inner {
+            padding: 0 1.6rem 1.4rem;
+            font-size: .9rem;
+            line-height: 1.75;
+            color: var(--cream-dim);
+            max-width: 72ch;
+        }
+    </style>
 </head>
 
 <body class="error-body">
@@ -36,7 +138,7 @@
             <li class="nav-item-dropdown">
                 <a href="/pages/about.html" class="dropdown-trigger">About <span class="dropdown-caret">▾</span></a>
                 <div class="nav-dropdown-menu">
-                    <a href="/pages/about.html">Manifesto & Mission</a>
+                    <a href="/pages/about.html">Manifesto &amp; Mission</a>
                     <a href="/pages/secretariat.html">Secretariat</a>
                     <a href="/pages/leadership.html">Leadership Message</a>
                 </div>
@@ -59,6 +161,7 @@
                 </div>
             </li>
             <li><a href="/pages/faq.html">FAQ</a></li>
+            <li><a href="/pages/schedule.html">Schedule</a></li>
             <li><a href="/pages/contact.html">Contact</a></li>
             <li><a class="nav-cta" href="/pages/registration.html"><span>Register</span></a></li>
         </ul>
@@ -69,50 +172,135 @@
             <div class="section-label">06 — Knowledge Base</div>
             <h1 class="error-heading">Frequently Asked <em>Questions.</em></h1>
             <p class="content-lead">
-                Everything you need to know about preparing for our conferences, understanding procedural mechanics, and securing your delegation.
+                Everything you need to know about preparing for our conferences, understanding procedural mechanics,
+                and securing your delegation.
             </p>
 
-            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem;">
-                <div class="content-card">
-                    <div class="content-card-tag">General Inquiry</div>
-                    <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: .6rem; color: var(--cream);">What is Model United Nations (MUN)?</h3>
-                    <p class="content-card-text">
-                        Model United Nations is an authentic academic simulation of the UN General Assembly, Security Council, and other multilateral bodies. Students assume the role of foreign diplomats to debate real-world issues, negotiate resolutions, and defend sovereign foreign policy.
-                    </p>
+            <div class="faq-list" id="faqList">
+
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <div class="faq-trigger-inner">
+                            <span class="faq-tag">General Inquiry</span>
+                            <span class="faq-question">What is Model United Nations (MUN)?</span>
+                        </div>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-body" role="region">
+                        <div class="faq-body-inner">
+                            Model United Nations is an authentic academic simulation of the UN General Assembly, Security
+                            Council, and other multilateral bodies. Students assume the role of foreign diplomats to
+                            debate real-world issues, negotiate resolutions, and defend sovereign foreign policy.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="content-card">
-                    <div class="content-card-tag">Participation</div>
-                    <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: .6rem; color: var(--cream);">Is ARAMBH MUN beginner-friendly?</h3>
-                    <p class="content-card-text">
-                        Yes. Chambers such as UNGA-DISEC and Lok Sabha are curated specifically to provide a supportive arena for delegates attending their first conference. Furthermore, our Secretariat conducts pre-conference orientation workshops on speechcraft and procedural motions.
-                    </p>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <div class="faq-trigger-inner">
+                            <span class="faq-tag">Participation</span>
+                            <span class="faq-question">Is ARAMBH MUN beginner-friendly?</span>
+                        </div>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-body" role="region">
+                        <div class="faq-body-inner">
+                            Yes. Chambers such as UNGA-DISEC and Lok Sabha are curated specifically to provide a
+                            supportive arena for delegates attending their first conference. Furthermore, our Secretariat
+                            conducts pre-conference orientation workshops on speechcraft and procedural motions.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="content-card">
-                    <div class="content-card-tag">Dress Code & Protocol</div>
-                    <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: .6rem; color: var(--cream);">What is the required conference attire?</h3>
-                    <p class="content-card-text">
-                        Delegates are expected to maintain formal diplomatic decorum. Western Business Formals (suits, blazers, formal shirts and trousers/skirts) are mandatory for UN committees. Indian Traditional Formals (Kurta-Pajama with Nehru jacket, Bandhgala, or formal Sarees) are permitted and encouraged in Indian legislative bodies such as the Lok Sabha.
-                    </p>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <div class="faq-trigger-inner">
+                            <span class="faq-tag">Dress Code &amp; Protocol</span>
+                            <span class="faq-question">What is the required conference attire?</span>
+                        </div>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-body" role="region">
+                        <div class="faq-body-inner">
+                            Delegates are expected to maintain formal diplomatic decorum. Western Business Formals
+                            (suits, blazers, formal shirts and trousers/skirts) are mandatory for UN committees. Indian
+                            Traditional Formals (Kurta-Pajama with Nehru jacket, Bandhgala, or formal Sarees) are
+                            permitted and encouraged in Indian legislative bodies such as the Lok Sabha.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="content-card">
-                    <div class="content-card-tag">Registration & Allocation</div>
-                    <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: .6rem; color: var(--cream);">How are country portfolios allocated?</h3>
-                    <p class="content-card-text">
-                        Portfolios are allocated on a rolling, first-come-first-served basis based on the preferences chosen during registration and previous debate experience. Allocations and background guides are communicated via email prior to the conference date.
-                    </p>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <div class="faq-trigger-inner">
+                            <span class="faq-tag">Registration &amp; Allocation</span>
+                            <span class="faq-question">How are country portfolios allocated?</span>
+                        </div>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-body" role="region">
+                        <div class="faq-body-inner">
+                            Portfolios are allocated on a rolling, first-come-first-served basis based on the preferences
+                            chosen during registration and previous debate experience. Allocations and background guides
+                            are communicated via email prior to the conference date.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="content-card">
-                    <div class="content-card-tag">Research & Policy</div>
-                    <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: .6rem; color: var(--cream);">Is submitting a Position Paper mandatory?</h3>
-                    <p class="content-card-text">
-                        Submission of a Position Paper is mandatory for delegates competing for Best Delegate and High Commendation awards. It also serves as your core research outline during moderated caucuses.
-                    </p>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <div class="faq-trigger-inner">
+                            <span class="faq-tag">Research &amp; Policy</span>
+                            <span class="faq-question">Is submitting a Position Paper mandatory?</span>
+                        </div>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-body" role="region">
+                        <div class="faq-body-inner">
+                            Submission of a Position Paper is mandatory for delegates competing for Best Delegate and
+                            High Commendation awards. It also serves as your core research outline during moderated
+                            caucuses.
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <div class="faq-trigger-inner">
+                            <span class="faq-tag">Awards</span>
+                            <span class="faq-question">What awards are given at ARAMBH MUN?</span>
+                        </div>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-body" role="region">
+                        <div class="faq-body-inner">
+                            Each committee awards Best Delegate, High Commendation, and a Special Mention. The
+                            Best Delegation award is given to the school/institution with the highest aggregate
+                            performance across all committees. Verbal commendations are issued at the Chairs'
+                            discretion during sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <div class="faq-trigger-inner">
+                            <span class="faq-tag">Logistics</span>
+                            <span class="faq-question">Where is ARAMBH MUN 2026 held?</span>
+                        </div>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-body" role="region">
+                        <div class="faq-body-inner">
+                            ARAMBH MUN 2026 is held at the <strong>Kautaliya Seminar Hall, MBA Block</strong>,
+                            Swami Keshvanand Institute of Technology, Management &amp; Gramothan (SKIT), Jaipur,
+                            Rajasthan on <strong>October 23rd, 2026</strong>. Registration opens at 08:30.
+                            Committees convene at 09:00.
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /faq-list -->
 
             <div class="error-actions actions-left">
                 <a href="/pages/registration.html" class="error-btn-primary">
@@ -133,9 +321,36 @@
         <div class="footer-links">
             <a href="#">Instagram</a> ·
             <a href="#">Source</a> ·
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=skit.mun.club@gmail.com" target="_blank" rel="noopener noreferrer">skit.mun.club@gmail.com</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=skit.mun.club@gmail.com" target="_blank"
+                rel="noopener noreferrer">skit.mun.club@gmail.com</a>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="/script.js"></script>
+    <script>
+        // FAQ accordion — click to open/close, one open at a time
+        document.querySelectorAll('.faq-trigger').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                const body = btn.nextElementSibling;
+
+                // Close all others
+                document.querySelectorAll('.faq-trigger[aria-expanded="true"]').forEach((other) => {
+                    if (other !== btn) {
+                        other.setAttribute('aria-expanded', 'false');
+                        other.nextElementSibling.style.maxHeight = '0';
+                    }
+                });
+
+                // Toggle this one
+                btn.setAttribute('aria-expanded', String(!expanded));
+                body.style.maxHeight = expanded ? '0' : body.scrollHeight + 'px';
+            });
+        });
+    </script>
 
 </body>
 

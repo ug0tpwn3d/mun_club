@@ -14,7 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <style>
-        /* ── Page layout ── */
+        /* ── Hero ── */
         .lm-hero {
             padding: 14rem 8vw 7rem;
             border-bottom: 1px solid var(--line-soft);
@@ -67,50 +67,54 @@
             font-weight: 300;
         }
 
-        /* ── Message body ── */
+        /* ── Body: per-section rows, no sticky sidebar ── */
         .lm-body {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 6vw;
-            padding: 10vh 8vw;
+            padding: 0 8vw;
             max-width: 1300px;
             margin: 0 auto;
         }
 
+        .lm-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 6vw;
+            padding: 8vh 0;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .lm-row:last-child { border-bottom: none; }
+
         @media (max-width: 900px) {
-            .lm-body {
+            .lm-row {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
+            .lm-hero { padding: 10rem 6vw 4rem; }
+            .lm-hero::before { display: none; }
+            .lm-body { padding: 0 6vw; }
         }
 
-        .lm-sidebar {
-            position: sticky;
-            top: 8rem;
-            align-self: start;
-        }
-
+        /* ── Author card ── */
         .lm-author-card {
             background: var(--black-2);
             border: 1px solid var(--line-soft);
             border-radius: 8px;
             padding: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
         }
 
         .lm-author-photo {
             width: 100%;
             aspect-ratio: 1/1;
-            max-height: 180px;
+            max-height: 160px;
             object-fit: cover;
             border-radius: 4px;
             display: block;
             background: color-mix(in srgb, var(--orange) 8%, var(--black-2));
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
-        .lm-author-photo[src="#"] {
-            min-height: 120px;
-        }
+        .lm-author-photo[src="#"] { min-height: 100px; }
 
         .lm-author-role {
             font-size: .55rem;
@@ -122,7 +126,7 @@
 
         .lm-author-name {
             font-family: var(--font-serif);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: .25rem;
         }
@@ -133,15 +137,14 @@
             line-height: 1.4;
         }
 
+        /* ── Page nav ── */
         .lm-nav-links {
             list-style: none;
             border-left: 2px solid var(--line-soft);
             padding-left: 1.2rem;
         }
 
-        .lm-nav-links li {
-            margin-bottom: .6rem;
-        }
+        .lm-nav-links li { margin-bottom: .6rem; }
 
         .lm-nav-links a {
             font-size: .68rem;
@@ -152,18 +155,23 @@
             transition: color .2s;
         }
 
-        .lm-nav-links a:hover {
-            color: var(--orange);
+        .lm-nav-links a:hover { color: var(--orange); }
+
+        /* ── Student mini-cards ── */
+        .lm-student-mini {
+            background: var(--black-2);
+            border: 1px solid var(--line-soft);
+            border-radius: 8px;
+            padding: 1rem;
+            /* initial state for animation */
+            opacity: 0;
+            transform: translateY(24px) scale(.96);
         }
 
         /* ── Prose ── */
-        .lm-prose {
-            color: var(--cream);
-        }
+        .lm-prose { color: var(--cream); }
 
-        .lm-message {
-            margin-bottom: 7rem;
-        }
+        .lm-message { margin-bottom: 0; }
 
         .lm-message-tag {
             font-size: .6rem;
@@ -267,7 +275,7 @@
             margin-top: .2rem;
         }
 
-        /* ── Full-width divider quote ── */
+        /* ── Divider ── */
         .lm-divider {
             background: var(--cream);
             color: var(--black);
@@ -291,7 +299,7 @@
             color: var(--orange);
         }
 
-        /* ── Bottom CTA ── */
+        /* ── CTA ── */
         .lm-cta {
             padding: 10rem 8vw;
             display: flex;
@@ -400,160 +408,224 @@
         <h1>A word before<br>the <em>floor opens.</em></h1>
     </div>
 
-    <!-- Body -->
+    <!-- Body — three independent rows, no sticky overflow -->
     <div class="lm-body">
 
-        <!-- Sidebar -->
-        <aside class="lm-sidebar">
+        <!-- ROW 1: Faculty message -->
+        <div class="lm-row">
+            <aside class="lm-sidebar">
+                <div class="lm-author-card">
+                    <img src="#" alt="Dr. Shiv Priya" class="lm-author-photo">
+                    <div class="lm-author-role">Faculty Co-ordinator</div>
+                    <div class="lm-author-name">Dr. Shiv Priya</div>
+                    <div class="lm-author-dept">Assistant Professor<br>English Department, SKIT</div>
+                </div>
+                <div class="lm-author-card">
+                    <img src="#" alt="Mrs. Sanju Chaudhary" class="lm-author-photo">
+                    <div class="lm-author-role">Faculty Co-ordinator</div>
+                    <div class="lm-author-name">Mrs. Sanju Chaudhary</div>
+                    <div class="lm-author-dept">Associate Professor<br>IT Department, SKIT</div>
+                </div>
+                <nav style="margin-top:1.5rem;">
+                    <p style="font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:.8rem;">On this page</p>
+                    <ul class="lm-nav-links">
+                        <li><a href="#faculty-message">Faculty Message</a></li>
+                        <li><a href="#student-message">Student Message</a></li>
+                        <li><a href="#conference-note">Conference Note</a></li>
+                    </ul>
+                </nav>
+            </aside>
 
-            <div class="lm-author-card">
-                <img src="#" alt="Dr. Shiv Priya" class="lm-author-photo">
-                <div class="lm-author-role">Faculty Co-ordinator</div>
-                <div class="lm-author-name">Dr. Shiv Priya</div>
-                <div class="lm-author-dept">Assistant Professor<br>English Department, SKIT</div>
+            <div class="lm-prose">
+                <article class="lm-message" id="faculty-message">
+                    <div class="lm-message-tag">Faculty Co-ordinators</div>
+                    <h2>On the discipline of<br><em>measured speech.</em></h2>
+
+                    <p>Dear Delegate,</p>
+
+                    <p>When we first walked into a Model United Nations committee room, what struck us was not the size of
+                        the arguments but the quality of the listening. Diplomacy is not the art of winning a debate — it
+                        is the art of building a position so considered, so grounded in fact and empathy, that even your
+                        opposition pauses to recalibrate.</p>
+
+                    <p>ARAMBH MUN was built on a simple conviction: that every student from this institution — regardless
+                        of their branch, their semester, or their prior MUN experience — deserves a room where their voice
+                        carries weight. Not because they were born fluent in procedure, but because they chose to learn.
+                        That choice is already half the credential.</p>
+
+                    <div class="lm-pull-quote">
+                        <blockquote>
+                            "The floor is not given to the loudest. It is earned by those who come prepared, speak with
+                            precision, and stay curious beyond their own clause."
+                        </blockquote>
+                        <cite>— Dr. Shiv Priya, Faculty Co-ordinator</cite>
+                    </div>
+
+                    <p>We have watched SKIT MUN grow from an informal reading group of twelve students to a conference
+                        with 40+ delegates and a reputation that travels beyond Jaipur. What has not changed — and what
+                        we actively protect — is the culture of rigour inside the committee room. We do not award
+                        speaking time to titles. We award it to preparation.</p>
+
+                    <p>To every delegate attending ARAMBH MUN 2026: read your study guide twice. Source your claims.
+                        Disagree on record. And when the chair calls for a moderated caucus, do not stand at the podium
+                        to restate your bloc's position — stand there to move the room.</p>
+
+                    <p>We look forward to watching you rise.</p>
+
+                    <div class="lm-message-sign">
+                        <div class="lm-sign-flag"></div>
+                        <div>
+                            <div class="lm-sign-name">Dr. Shiv Priya &amp; Mrs. Sanju Chaudhary</div>
+                            <div class="lm-sign-role">Faculty Co-ordinators · SKIT MUN CLUB</div>
+                        </div>
+                    </div>
+                </article>
             </div>
+        </div><!-- /ROW 1 -->
 
-            <div class="lm-author-card">
-                <img src="#" alt="Mrs. Sanju Chaudhary" class="lm-author-photo">
-                <div class="lm-author-role">Faculty Co-ordinator</div>
-                <div class="lm-author-name">Mrs. Sanju Chaudhary</div>
-                <div class="lm-author-dept">Associate Professor<br>Information Technology Dept., SKIT</div>
+        <!-- ROW 2: Student message -->
+        <div class="lm-row">
+            <!-- Student co-ordinator cards — GSAP popup animation on scroll -->
+            <aside class="lm-sidebar" id="student-sidebar">
+                <p style="font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:1.2rem;">Student Team</p>
+                <div id="lmStudentCards" style="display:flex;flex-direction:column;gap:.8rem;">
+
+                    <div class="lm-student-mini">
+                        <div style="display:flex;align-items:center;gap:.8rem;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:color-mix(in srgb,var(--orange) 15%,var(--black-2));border:1px solid var(--line-orange);flex-shrink:0;"></div>
+                            <div>
+                                <div style="font-family:var(--font-serif);font-weight:700;font-size:.9rem;">Nishant Kumar</div>
+                                <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-top:.15rem;">Student Co-ordinator</div>
+                            </div>
+                        </div>
+                        <p style="font-size:.72rem;color:var(--cream-dim);margin-top:.6rem;font-style:italic;line-height:1.5;">&ldquo;Every portfolio is a passport.&rdquo;</p>
+                    </div>
+
+                    <div class="lm-student-mini">
+                        <div style="display:flex;align-items:center;gap:.8rem;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:color-mix(in srgb,var(--orange) 15%,var(--black-2));border:1px solid var(--line-orange);flex-shrink:0;"></div>
+                            <div>
+                                <div style="font-family:var(--font-serif);font-weight:700;font-size:.9rem;">Keshav Saini</div>
+                                <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-top:.15rem;">Student Co-ordinator</div>
+                            </div>
+                        </div>
+                        <p style="font-size:.72rem;color:var(--cream-dim);margin-top:.6rem;font-style:italic;line-height:1.5;">&ldquo;History rhymes — I write the rhymes.&rdquo;</p>
+                    </div>
+
+                    <div class="lm-student-mini">
+                        <div style="display:flex;align-items:center;gap:.8rem;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:color-mix(in srgb,var(--orange) 15%,var(--black-2));border:1px solid var(--line-orange);flex-shrink:0;"></div>
+                            <div>
+                                <div style="font-family:var(--font-serif);font-weight:700;font-size:.9rem;">Shivansh Dwivedi</div>
+                                <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-top:.15rem;">Student Co-ordinator</div>
+                            </div>
+                        </div>
+                        <p style="font-size:.72rem;color:var(--cream-dim);margin-top:.6rem;font-style:italic;line-height:1.5;">&ldquo;Never doubt your value.&rdquo;</p>
+                    </div>
+
+                    <div class="lm-student-mini">
+                        <div style="display:flex;align-items:center;gap:.8rem;">
+                            <div style="width:36px;height:36px;border-radius:50%;background:color-mix(in srgb,var(--orange) 15%,var(--black-2));border:1px solid var(--line-orange);flex-shrink:0;"></div>
+                            <div>
+                                <div style="font-family:var(--font-serif);font-weight:700;font-size:.9rem;">Ronak Dev</div>
+                                <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-top:.15rem;">Student Co-ordinator</div>
+                            </div>
+                        </div>
+                        <p style="font-size:.72rem;color:var(--cream-dim);margin-top:.6rem;font-style:italic;line-height:1.5;">&ldquo;The words change the world.&rdquo;</p>
+                    </div>
+
+                </div>
+            </aside>
+
+            <div class="lm-prose">
+                <article class="lm-message" id="student-message">
+                    <div class="lm-message-tag">Student Co-ordinators</div>
+                    <h2>From the student team:<br><em>why this matters.</em></h2>
+
+                    <p>To everyone who registered for ARAMBH MUN 2026,</p>
+
+                    <p>We built this conference from inside a classroom. The logistics spreadsheet, the study guide, the
+                        committee matrix, the crisis update feed — every line of it was written by students who had once
+                        sat exactly where you are sitting: reading about MUN for the first time, unsure whether they
+                        belonged in the room.</p>
+
+                    <p>You do. That is the point of ARAMBH MUN. It has always been a conference that takes its delegates
+                        seriously from the moment they sign up, not just after they have won an award. Our adjudication
+                        core is trained to reward genuine engagement — a well-sourced objection, a creative amendment,
+                        an honest admission that a bloc position has a flaw. Performing confidence is easy.
+                        Demonstrating intellectual honesty is rare.</p>
+
+                    <div class="lm-pull-quote">
+                        <blockquote>
+                            "Every portfolio is a passport. The question is not where it takes you — it's how far
+                            you're willing to go with it."
+                        </blockquote>
+                        <cite>— Nishant Kumar, Student Co-ordinator</cite>
+                    </div>
+
+                    <p>We have made some changes for 2026. Crisis updates will be issued every 45 minutes in the
+                        UNSC — 1971 room. The Lok Sabha committee will follow a hybrid procedure that blends formal MUN
+                        rules with parliamentary motion formats. And for the first time, we are running a post-conference
+                        delegate debrief open to all participants.</p>
+
+                    <p>We are proud of what this club has become. We are even more curious about what you will make of
+                        it on October 23rd.</p>
+
+                    <div class="lm-message-sign">
+                        <div class="lm-sign-flag"></div>
+                        <div>
+                            <div class="lm-sign-name">Nishant Kumar, Keshav Saini, Shivansh Dwivedi &amp; Ronak Dev</div>
+                            <div class="lm-sign-role">Student Co-ordinators · ARAMBH MUN 2026</div>
+                        </div>
+                    </div>
+                </article>
             </div>
+        </div><!-- /ROW 2 -->
 
-            <nav style="margin-top: 2rem;">
-                <p style="font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:.8rem;">On this page</p>
-                <ul class="lm-nav-links">
-                    <li><a href="#faculty-message">Faculty Message</a></li>
-                    <li><a href="#student-message">Student Message</a></li>
-                    <li><a href="#conference-note">Conference Note</a></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Prose -->
-        <div class="lm-prose">
-
-            <!-- Faculty message -->
-            <article class="lm-message" id="faculty-message">
-                <div class="lm-message-tag">Faculty Co-ordinators</div>
-                <h2>On the discipline of<br><em>measured speech.</em></h2>
-
-                <p>Dear Delegate,</p>
-
-                <p>When we first walked into a Model United Nations committee room, what struck us was not the size of
-                    the arguments but the quality of the listening. Diplomacy is not the art of winning a debate — it is
-                    the art of building a position so considered, so grounded in fact and empathy, that even your
-                    opposition pauses to recalibrate.</p>
-
-                <p>ARAMBH MUN was built on a simple conviction: that every student from this institution — regardless of
-                    their branch, their semester, or their prior MUN experience — deserves a room where their voice
-                    carries weight. Not because they were born fluent in procedure, but because they chose to learn. That
-                    choice is already half the credential.</p>
-
-                <div class="lm-pull-quote">
-                    <blockquote>
-                        "The floor is not given to the loudest. It is earned by those who come prepared, speak with
-                        precision, and stay curious beyond their own clause."
-                    </blockquote>
-                    <cite>— Dr. Shiv Priya, Faculty Co-ordinator</cite>
+        <!-- ROW 3: Conference note -->
+        <div class="lm-row">
+            <aside class="lm-sidebar">
+                <div style="background:var(--black-2);border:1px solid var(--line-soft);border-radius:8px;padding:2rem;">
+                    <div style="font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:var(--orange);margin-bottom:.8rem;">Conference</div>
+                    <div style="font-family:var(--font-serif);font-size:2.4rem;font-weight:900;line-height:.9;margin-bottom:.8rem;">ARAMBH<br>MUN<br><span style="color:var(--orange);">'26</span></div>
+                    <div style="font-size:.75rem;color:var(--cream-dim);line-height:1.6;">Oct 23rd, 2026<br>Kautaliya Seminar Hall<br>MBA Block, SKIT, Jaipur</div>
                 </div>
+            </aside>
 
-                <p>We have watched SKIT MUN grow from an informal reading group of twelve students to a conference with
-                    40+ delegates and a reputation that travels beyond Jaipur. What has not changed — and what we
-                    actively protect — is the culture of rigour inside the committee room. We do not award speaking time
-                    to titles. We award it to preparation.</p>
+            <div class="lm-prose">
+                <article class="lm-message" id="conference-note">
+                    <div class="lm-message-tag">Conference Note</div>
+                    <h2>On the theme:<br><em>ARAMBH.</em></h2>
 
-                <p>To every delegate attending ARAMBH MUN 2026: read your study guide twice. Source your claims.
-                    Disagree on record. And when the chair calls for a moderated caucus, do not stand at the podium to
-                    restate your bloc's position — stand there to move the room.</p>
+                    <p>The name we chose is not incidental. <strong>Arambh</strong> — a Sanskrit word meaning beginning,
+                        initiation, the first act of a new order — captures exactly what we believe every committee
+                        session should feel like. Not a rehearsal of positions already held, but a genuine beginning of
+                        something the room did not expect.</p>
 
-                <p>We look forward to watching you rise.</p>
+                    <p>The committees for 2026 — UNGA DISEC, UNHRC, UNSC 1971, and Lok Sabha Special Session — were
+                        chosen because they represent different layers of international and domestic governance. A
+                        delegate who can move between the abstraction of global security architecture and the procedural
+                        texture of parliamentary debate is a delegate who understands why the two are inseparable.</p>
 
-                <div class="lm-message-sign">
-                    <div class="lm-sign-flag"></div>
-                    <div>
-                        <div class="lm-sign-name">Dr. Shiv Priya &amp; Mrs. Sanju Chaudhary</div>
-                        <div class="lm-sign-role">Faculty Co-ordinators · SKIT MUN CLUB</div>
+                    <p>We ask every delegate, regardless of experience level, to approach their committee with the same
+                        orientation: <em>what does this room need to move forward, and how can my position help it get
+                        there?</em> Awards follow preparation. Preparation follows curiosity.</p>
+
+                    <p>The floor will open at 09:00 on October 23rd, 2026.</p>
+                    <p style="color: var(--orange); font-weight: 700;">Order. Order. The delegate may speak.</p>
+
+                    <div class="lm-message-sign">
+                        <div class="lm-sign-flag"></div>
+                        <div>
+                            <div class="lm-sign-name">The Secretariat</div>
+                            <div class="lm-sign-role">ARAMBH MUN 2026 · SKIT MUN CLUB, Jaipur</div>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </div>
+        </div><!-- /ROW 3 -->
 
-            <!-- Student message -->
-            <article class="lm-message" id="student-message">
-                <div class="lm-message-tag">Student Co-ordinators</div>
-                <h2>From the student team:<br><em>why this matters.</em></h2>
-
-                <p>To everyone who registered for ARAMBH MUN 2026,</p>
-
-                <p>We built this conference from inside a classroom. The logistics spreadsheet, the study guide, the
-                    committee matrix, the crisis update feed — every line of it was written by students who had once sat
-                    exactly where you are sitting: reading about MUN for the first time, unsure whether they belonged in
-                    the room.</p>
-
-                <p>You do. That is the point of ARAMBH MUN. It has always been a conference that takes its delegates
-                    seriously from the moment they sign up, not just after they have won an award. Our adjudication core
-                    is trained to reward genuine engagement — a well-sourced objection, a creative amendment, an honest
-                    admission that a bloc position has a flaw. Performing confidence is easy. Demonstrating intellectual
-                    honesty is rare.</p>
-
-                <div class="lm-pull-quote">
-                    <blockquote>
-                        "Every portfolio is a passport. The question is not where it takes you — it's how far you're
-                        willing to go with it."
-                    </blockquote>
-                    <cite>— Nishant Kumar, Student Co-ordinator</cite>
-                </div>
-
-                <p>We have made some changes for 2026. Crisis updates will be issued every 45 minutes in the UNSC — 1971
-                    room. The Lok Sabha committee will follow a hybrid procedure that blends formal MUN rules with
-                    parliamentary motion formats. And for the first time, we are running a post-conference delegate
-                    debrief open to all participants.</p>
-
-                <p>We are proud of what this club has become. We are even more curious about what you will make of it on
-                    October 23rd.</p>
-
-                <div class="lm-message-sign">
-                    <div class="lm-sign-flag"></div>
-                    <div>
-                        <div class="lm-sign-name">Nishant Kumar, Keshav Saini, Shivansh Dwivedi &amp; Ronak Dev</div>
-                        <div class="lm-sign-role">Student Co-ordinators · ARAMBH MUN 2026</div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Conference note -->
-            <article class="lm-message" id="conference-note">
-                <div class="lm-message-tag">Conference Note</div>
-                <h2>On the theme:<br><em>ARAMBH.</em></h2>
-
-                <p>The name we chose is not incidental. <strong>Arambh</strong> — a Sanskrit word meaning beginning,
-                    initiation, the first act of a new order — captures exactly what we believe every committee session
-                    should feel like. Not a rehearsal of positions already held, but a genuine beginning of something
-                    the room did not expect.</p>
-
-                <p>The committees for 2026 — UNGA DISEC, UNHRC, UNSC 1971, and Lok Sabha Special Session — were chosen
-                    because they represent different layers of international and domestic governance. A delegate who can
-                    move between the abstraction of global security architecture and the procedural texture of
-                    parliamentary debate is a delegate who understands why the two are inseparable.</p>
-
-                <p>We ask every delegate, regardless of experience level, to approach their committee with the same
-                    orientation: <em>what does this room need to move forward, and how can my position help it get
-                    there?</em> Awards follow preparation. Preparation follows curiosity.</p>
-
-                <p>The floor will open at 09:00 on October 23rd, 2026.</p>
-                <p style="color: var(--orange); font-weight: 700;">Order. Order. The delegate may speak.</p>
-
-                <div class="lm-message-sign">
-                    <div class="lm-sign-flag"></div>
-                    <div>
-                        <div class="lm-sign-name">The Secretariat</div>
-                        <div class="lm-sign-role">ARAMBH MUN 2026 · SKIT MUN CLUB, Jaipur</div>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-    </div>
+    </div><!-- /lm-body -->
 
     <!-- Full-width quote -->
     <div class="lm-divider">
@@ -568,8 +640,8 @@
     <div class="lm-cta">
         <div class="section-label section-label--center" style="width:100%;">Ready to register?</div>
         <h2>The floor<br>is <em>yours.</em></h2>
-        <p>Allocate your portfolio, confirm your delegation, and arrive prepared. ARAMBH MUN 2026 opens October 23rd at
-            Kautaliya Seminar Hall, MBA Block, SKIT, Jaipur.</p>
+        <p>Allocate your portfolio, confirm your delegation, and arrive prepared. ARAMBH MUN 2026 opens October 23rd
+            at Kautaliya Seminar Hall, MBA Block, SKIT, Jaipur.</p>
         <a href="/pages/registration.html" class="lm-cta-btn">Register as Delegate →</a>
     </div>
 
@@ -590,6 +662,26 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="/script.js"></script>
+    <script>
+        // Student co-ordinator cards — popup animation when section enters view
+        gsap.registerPlugin(ScrollTrigger);
+        const studentMiniCards = document.querySelectorAll('#lmStudentCards .lm-student-mini');
+        if (studentMiniCards.length) {
+            gsap.to(studentMiniCards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.55,
+                stagger: 0.13,
+                ease: 'back.out(1.6)',
+                scrollTrigger: {
+                    trigger: '#student-sidebar',
+                    start: 'top 75%',
+                    once: true
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

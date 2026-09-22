@@ -7,6 +7,15 @@ lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((t) => lenis.raf(t * 1000));
 gsap.ticker.lagSmoothing(0);
 
+// On all pages except the homepage, nav is always visible (no transparent hero)
+const isHome = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html');
+if (!isHome) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('.nav');
+    if (nav) nav.classList.add('nav--scrolled');
+  });
+}
+
 // Inject hamburger toggle into nav (avoids editing every HTML file)
 (function () {
   const nav = document.querySelector('.nav');
