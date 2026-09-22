@@ -13,7 +13,7 @@
 | **Flagship conference** | ARAMBH MUN 2026 |
 | **Conference date** | October 23rd, 2026 |
 | **Venue** | Kautaliya Seminar Hall, MBA Block, SKIT, Jaipur |
-| **Email** | skit.mun.club@gmail.com |
+| **Email** | skitmg.mun.club@gmail.com |
 | **Club est.** | 2020 |
 | **Website type** | Static HTML/CSS/JS — no build step, no framework |
 

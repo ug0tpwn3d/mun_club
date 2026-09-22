@@ -686,7 +686,7 @@ Current social/contact placeholders:
 - Instagram → `#`
 - Source → `#`
 - Gmail compose:
-  `https://mail.google.com/mail/?view=cm&fs=1&to=skit.mun.club@gmail.com`
+  `https://mail.google.com/mail/?view=cm&fs=1&to=skitmg.mun.club@gmail.com`
 
 Left-aligned circular club emblem adjacent to copyright label.
 
