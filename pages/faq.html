@@ -14,105 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/404.css">
-    <style>
-        /* ── Accordion ── */
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            margin-bottom: 3rem;
-            border: 1px solid var(--line-soft);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--line-soft);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-trigger {
-            width: 100%;
-            background: var(--black-2);
-            border: none;
-            color: var(--cream);
-            padding: 1.4rem 1.6rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            cursor: pointer;
-            text-align: left;
-            transition: background .2s;
-        }
-
-        .faq-trigger:hover {
-            background: color-mix(in srgb, var(--orange) 6%, var(--black-2));
-        }
-
-        .faq-trigger[aria-expanded="true"] {
-            background: color-mix(in srgb, var(--orange) 8%, var(--black-2));
-        }
-
-        .faq-trigger-inner {
-            display: flex;
-            flex-direction: column;
-            gap: .3rem;
-        }
-
-        .faq-tag {
-            font-size: .55rem;
-            letter-spacing: .35em;
-            text-transform: uppercase;
-            color: var(--orange);
-            font-weight: 700;
-        }
-
-        .faq-question {
-            font-family: var(--font-serif);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--cream);
-            line-height: 1.3;
-        }
-
-        .faq-icon {
-            flex-shrink: 0;
-            width: 20px;
-            height: 20px;
-            border: 1px solid var(--line-soft);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform .3s var(--ease-out), border-color .2s;
-            color: var(--orange);
-            font-size: .7rem;
-        }
-
-        .faq-trigger[aria-expanded="true"] .faq-icon {
-            transform: rotate(45deg);
-            border-color: var(--orange);
-        }
-
-        .faq-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .35s var(--ease-out);
-            background: var(--black-2);
-        }
-
-        .faq-body-inner {
-            padding: 0 1.6rem 1.4rem;
-            font-size: .9rem;
-            line-height: 1.75;
-            color: var(--cream-dim);
-            max-width: 72ch;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/pages/faq.css">
 </head>
 
 <body class="error-body">
@@ -331,27 +233,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="/script.js"></script>
-    <script>
-        // FAQ accordion — click to open/close, one open at a time
-        document.querySelectorAll('.faq-trigger').forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                const body = btn.nextElementSibling;
-
-                // Close all others
-                document.querySelectorAll('.faq-trigger[aria-expanded="true"]').forEach((other) => {
-                    if (other !== btn) {
-                        other.setAttribute('aria-expanded', 'false');
-                        other.nextElementSibling.style.maxHeight = '0';
-                    }
-                });
-
-                // Toggle this one
-                btn.setAttribute('aria-expanded', String(!expanded));
-                body.style.maxHeight = expanded ? '0' : body.scrollHeight + 'px';
-            });
-        });
-    </script>
+    <script src="/js/pages/faq.js"></script>
 
 </body>
 

@@ -1,0 +1,10 @@
+/* ============================================================
+   About Page Styles — /css/pages/about.css
+   ============================================================ */
+
+.about-quote-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--cream);
+}

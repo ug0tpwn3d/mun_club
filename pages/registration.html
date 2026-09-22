@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/pages/registration.css">
 </head>
 
 <body>
@@ -101,13 +102,8 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            document.getElementById('formNote').textContent = 'Portfolio request received — check your inbox for confirmation.';
-            e.target.reset();
-        });
-    </script>
+    <script src="/script.js"></script>
+    <script src="/js/pages/registration.js"></script>
 </body>
 
 </html>
