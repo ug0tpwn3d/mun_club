@@ -202,6 +202,11 @@ Contact                        → /pages/contact.html
 
 **Registrations Closed state:** In `index.html` nav, there is a commented-out `nav-cta--closed` button. Uncomment it and comment out the active Register button to switch to "Registrations Closed" state.
 
+**Navbar Opacity Architecture:**
+- In `style.css`, `.nav` is **opaque by default** (`background: color-mix(in srgb, var(--black) 88%, transparent)` with `backdrop-filter: blur(14px)`).
+- Only `.page-home .nav:not(.nav--scrolled)` (on `index.html` with `<body class="page-home">`) begins transparent over the hero video, becoming opaque when scrolled past 50px.
+- All inner pages (`secretariat.html`, `leadership.html`, etc.) have their navbar visible and opaque immediately in pure CSS without relying on JS execution or scroll triggers. Additionally, `secretariat.html` and `leadership.html` carry inline scoped CSS overrides for absolute visual persistence over light/cream sections.
+
 ---
 
 ## 6. script.js — What It Does

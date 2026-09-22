@@ -347,6 +347,14 @@
             background: var(--orange-soft);
             transform: translateY(-2px);
         }
+
+        /* ── Leadership navbar: permanent dark frosted background ── */
+        .nav {
+            background: color-mix(in srgb, var(--black) 92%, transparent) !important;
+            backdrop-filter: blur(14px) !important;
+            -webkit-backdrop-filter: blur(14px) !important;
+            border-bottom: 1px solid var(--line-soft) !important;
+        }
     </style>
 </head>
 
@@ -361,7 +369,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav nav--scrolled">
         <a class="nav-logo" href="/">
             <span class="nav-logo-badge">
                 <img src="/assets/icons/club_logo.jpeg" alt="SKIT MUN Emblem" class="nav-logo-img">
@@ -660,6 +668,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="/script.js"></script>
     <script>
