@@ -1038,3 +1038,63 @@ The architecture should allow the website to eventually support:
 ---
 
 *Inspiration website reference: [delhimun.in](https://delhimun.in)*
+
+---
+
+# 33. SKIT MUN WEBSITE — COMPLETE CONTENT + ARCHITECTURE IMPLEMENTATION SPECIFICATION
+
+## 33.1 Core Objective
+Build a complete, scalable SKIT MUN website with:
+- official SKIT MUN CLUB presence
+- ARAMBH MUN conference platform
+- delegate education/resource hub
+- committee information
+- secretariat and executive board
+- schedule and venue
+- registration architecture
+- FAQ
+- media, press, blog
+- future MUN directory architecture
+
+The website expands from one conference into a long-term academic MUN platform.
+
+## 33.2 Reference Website & Taxonomy Scope
+Use Delhi MUN (`delhimun.in`) as a reference for informational scope and taxonomy only.
+Ensure SKIT MUN covers comparable educational topics:
+- delegate resource hub categorization
+- beginner resources
+- MUN procedure topics
+- writing and research resources
+- specialized committee guides
+- conference expectations
+
+## 33.3 Absolute Content Integrity Rule
+DO NOT copy or reproduce Delhi MUN or external content:
+- Zero copying of paragraphs, slogans, biographies, or graphic assets.
+- Independent research of underlying diplomatic concepts.
+- 100% original SKIT MUN copy, examples, and educational presentation.
+- Never invent people, dates, fees, awards, or sponsors. Use `[ADD OFFICIAL INFORMATION]` where data is pending.
+
+## 33.4 HTML / CSS / JS / Data Separation
+- **HTML**: Owns structure, headings, editorial paragraphs, educational guides, FAQ content, semantic forms. No editorial content inside JS.
+- **CSS**: Owns layout, typography, colors, responsiveness, visual effects, and animations. Zero inline styles.
+- **JavaScript**: Owns UI state, dropdowns, modal windows, search, filtering, and animation controls. No giant `innerHTML` injections of pages.
+- **Data files**: Own structured metadata that changes (`site.js`, `conference.js`, `committees.js`, `team.js`, `schedule.js`, `resources.js`, `faq.js`, `directory.js`, `blog.js`, `locations.js`, `media.js`).
+
+## 33.5 Educational Resource Taxonomy
+The platform encompasses the complete taxonomy:
+- **Category A (Fundamentals)**: What Is MUN, How MUN Works, Your First MUN, Preparing for a Conference, Conference Checklist, Dress Code.
+- **Category B (Research)**: Country Research, Topic Research, Reliable Sources, Research Brief, National Positions, UN Action History.
+- **Category C (Rules of Procedure)**: Roll Call, GSL, Points & Motions, Moderated & Unmoderated Caucuses, Working Papers, Draft Resolutions, Amendments, Voting, Yields.
+- **Category D (Position Papers)**: Purpose, Research, Country Stance, Structure, Sample Analysis, Practical Examples, Final Checklist.
+- **Category E (Resolution Writing)**: Preambulatory Clauses, Operative Clauses, Sponsors & Signatories, Friendly/Unfriendly Amendments, Voting Bloc.
+- **Category F (Speaking & Rhetoric)**: Opening Speeches, Public Speaking, Rhetorical Structure, POIs, Rebuttals, Speaking Under Pressure.
+- **Category G (Negotiation & Lobbying)**: Coalition Building, Bloc Formation, Unmoderated Strategy, Diplomatic Compromise.
+- **Category H (Advanced Strategy)**: Committee Dynamics, Crisis Tactics, Strategic Voting, Agenda Setting.
+- **Specialized Committee Guides**: UNSC, UNGA, UNHRC, UNICEF, CSW, AIPPM / Lok Sabha, International Press, Crisis Committees.
+
+## 33.6 Implementation Status Classification
+- **COMPLETE**: Original substantive content ready and integrated.
+- **NEEDS SKIT DATA**: Structure ready; awaiting official SKIT confirmation (tagged `[ADD OFFICIAL INFORMATION]`).
+- **PLACEHOLDER**: Intentional design placeholder.
+- **INCOMPLETE**: Requires further expansion.

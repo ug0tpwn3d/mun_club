@@ -46,7 +46,17 @@ mun_club/
 │   └── articles/
 │       ├── what-is-mun.html              # Academic foundations of Model United Nations
 │       ├── first-mun.html                # Field guide for first-time delegates
+│       ├── country-research.html         # Researching national policy, treaties & UN data
+│       ├── conference-checklist.html     # 7-day preparation schedule & physical binder kit
+│       ├── dress-code.html               # Western Business Formal vs. Indian Traditional attire
 │       ├── public-speaking.html          # Speechcraft, rhetoric, and GSL mastery
+│       ├── negotiation.html              # Principled negotiation, red lines & consensus building
+│       ├── lobbying.html                 # Unmoderated caucuses & bloc formation dynamics
+│       ├── advanced-strategies.html      # Procedural tactics, motion precedence & amendment battles
+│       ├── unsc.html                     # UN Security Council: Chapter VII & P5 veto mechanics
+│       ├── unga.html                     # UN General Assembly: Sovereign equality & Main Committees
+│       ├── unhrc.html                    # UN Human Rights Council: UPR & Special Rapporteurs
+│       ├── international-press.html      # Press Corps: Investigative reporting & press conferences
 │       ├── crisis-committee.html         # Continuous crisis committee tactics and backroom directives
 │       └── aippm.html                    # Indian parliamentary procedure (Lok Sabha / AIPPM)
 │

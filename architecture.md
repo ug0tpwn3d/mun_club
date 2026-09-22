@@ -920,3 +920,69 @@ Easy future expansion
 
 That provides a strong foundation for turning the MUN website into a
 larger conference platform later.
+
+------------------------------------------------------------------------
+
+# 23. Complete Content and Taxonomy Architecture
+
+## 23.1 Information Hierarchy & File Map
+```text
+mun/
+├── index.html
+├── 404.html
+├── pages/
+│   ├── about.html
+│   ├── committees.html
+│   ├── secretariat.html
+│   ├── schedule.html
+│   ├── resources.html
+│   ├── registration.html
+│   ├── faq.html
+│   ├── media.html
+│   └── contact.html
+├── conference/
+│   └── arambh-mun-2026/
+│       └── index.html
+├── resources/
+│   ├── rules.html
+│   ├── position-paper.html
+│   ├── resolution-writing.html
+│   └── articles/
+│       ├── what-is-mun.html
+│       ├── first-mun.html
+│       ├── country-research.html
+│       ├── conference-checklist.html
+│       ├── dress-code.html
+│       ├── public-speaking.html
+│       ├── negotiation.html
+│       ├── lobbying.html
+│       ├── advanced-strategies.html
+│       ├── unsc.html
+│       ├── unga.html
+│       ├── unhrc.html
+│       ├── international-press.html
+│       ├── aippm.html
+│       └── crisis-committee.html
+├── directory/
+│   └── index.html
+├── data/
+│   ├── site.js
+│   ├── conference.js
+│   ├── committees.js
+│   ├── team.js
+│   ├── schedule.js
+│   ├── resources.js
+│   ├── faq.js
+│   └── directory.js
+```
+
+## 23.2 Article Depth & Standard Format
+Each major educational guide adheres to:
+1. **Header & Context**: Category badge, H1 title, reading time, and metadata.
+2. **Pedagogical Introduction**: Defining the concept cleanly for beginners without jargon barriers.
+3. **Core Concepts & Frameworks**: Structural explanation of mechanisms, procedures, and diplomatic precedents.
+4. **Step-by-Step Methodology**: Concrete actions a delegate executes before or during committee.
+5. **Original Examples**: Authentic, original examples of speeches, clauses, research briefs, or caucus motions.
+6. **Common Mistakes & Remedies**: Identifying pitfalls and corrective strategies.
+7. **Actionable Checklist**: Quick bullet-point checklist for immediate application.
+8. **Navigation & Interlinking**: Clear pathways to related guides, ROP, and conference registration.
