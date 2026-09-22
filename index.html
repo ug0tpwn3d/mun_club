@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIT MUN CLUB — Model United Nations Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="resources/club_logo.jpeg" alt="SKIT MUN CLUB Logo" class="preloader-logo">
+        <p class="preloader-tag">SKIT MUN CLUB · Est. 2020</p>
+    </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Announcement ticker -->
+    <div class="ticker">
+        <div class="ticker-track" id="tickerTrack">
+            <span>ARAMBH MUN 2026 · Registrations Open · Oct 23rd, 2026 · Kautaliya Seminar Hall, MBA Block
+                ·&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a class="nav-logo" href="#hero">
+            <span class="nav-logo-badge">
+                <img src="resources/club_logo.jpeg" alt="SKIT MUN Emblem" class="nav-logo-img">
+            </span>
+            <span class="nav-logo-text">SKIT MUN CLUB<span class="accent">.</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">Manifesto</a></li>
+            <li><a href="#committees">Committees</a></li>
+            <li><a href="#conference">Conference</a></li>
+            <li><a href="#secretariat">Secretariat</a></li>
+            <li>
+                <a class="nav-cta" href="#register">
+                    <span>Register</span>
+                </a>
+                <!-- Registrations Closed state (uncomment when closed):
+                <a class="nav-cta nav-cta--closed" href="#register" aria-disabled="true">
+                    <svg class="nav-cta-lock" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Registrations Closed</span>
+                </a>
+                -->
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Exploded hero -->
+    <header class="hero" id="hero">
+        <h1 class="hero-title">
+            <span class="line"><span>Order.</span></span>
+            <span class="line"><span class="accent">Order.</span></span>
+            <span class="line"><span>The delegate may speak.</span></span>
+        </h1>
+
+        <p class="hero-sub"><span class="redact-bar"> Model United Nations Club</span> · Swami Keshvanand Institiute of
+            Technology , M&G , Jaipur</p>
+        <div class="scroll-hint"><span class="scroll-wheel"></span></div>
+    </header>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-track" id="marqueeTrack">
+            <span>Point of Order <b>·</b> Moderated Caucus <b>·</b> Right of Reply <b>·</b> Unmoderated Caucus <b>·</b>
+                Draft Resolution <b>·</b> Yielding the Floor <b>·</b>&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- Manifesto -->
+    <section class="about" id="about">
+        <div class="section-label">01 — The Manifesto</div>
+        <p class="manifesto-text" id="manifestoText">
+            We are <strong>not debaters.</strong> We are <em>diplomats in training</em> — with 400+ students from our
+            institute, arguing the world's hardest questions in English, Hindi, and every language of
+            persuasion. From the <strong>College Campus</strong> to the <strong>State and National circuits</strong>, we
+            take
+            the floor so reality becomes a little more solvable.
+        </p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num" data-count="400">0</div>
+                <div class="stat-label">Active Delegates</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num" data-count="3">0</div>
+                <div class="stat-label">Annual Committees</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num" data-count="3">0</div>
+                <div class="stat-label">Editions Hosted</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num" data-count="9">0</div>
+                <div class="stat-label">Best Delegation Awards</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committees -->
+    <section class="committees" id="committees">
+        <div class="committees-pin">
+            <div class="committees-head">
+                <div class="section-label section-label--light">02 — The Chambers</div>
+                <h2 class="committees-title">Pick your <em>battlefield.</em></h2>
+            </div>
+            <div class="committee-track" id="committeeTrack">
+
+                <article class="comm-card" data-num="01">
+                    <div>
+                        <div class="comm-agency">United Nations · Beginner</div>
+                        <h3>UNGA — DISEC</h3>
+                        <p>Disarmament &amp; international security. Conventional arms, non-proliferation, and the
+                            endless question of peace in a nuclear age.</p>
+                        <div class="difficulty"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                    <a class="comm-register" href="#register">Allocate Portfolio</a>
+                </article>
+
+                <article class="comm-card" data-num="02">
+                    <div>
+                        <div class="comm-agency">United Nations · Intermediate</div>
+                        <h3>UNHRC</h3>
+                        <p>Human rights crises, real-time. Kashmir to Gaza, freedom of expression to custodial justice —
+                            no topic is off the table.</p>
+                        <div class="difficulty"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+                        </div>
+                    </div>
+                    <a class="comm-register" href="#register">Allocate Portfolio</a>
+                </article>
+
+                <article class="comm-card" data-num="03">
+                    <div>
+                        <div class="comm-agency">Crisis Committee · Advanced</div>
+                        <h3>UNSC — 1971</h3>
+                        <p>A continuous crisis simulation set during the Bangladesh Liberation War. Cabinet directives,
+                            press conferences, and backchannels.</p>
+                        <div class="difficulty"><i class="on"></i><i class="on"></i><i class="on"></i><i
+                                class="on"></i><i></i></div>
+                    </div>
+                    <a class="comm-register" href="#register">Allocate Portfolio</a>
+                </article>
+
+                <article class="comm-card" data-num="04">
+                    <div>
+                        <div class="comm-agency">Indian Context · All Levels</div>
+                        <h3>Lok Sabha — Special Session</h3>
+                        <p>Simulate the Indian Parliament itself. The Women's Reservation Bill, delimitation, and
+                            parliamentary procedure — desi style.</p>
+                        <div class="difficulty"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+                    </div>
+                    <a class="comm-register" href="#register">Allocate Portfolio</a>
+                </article>
+
+                <article class="comm-card" data-num="05">
+                    <div>
+                        <div class="comm-agency">Futuristic · Expert</div>
+                        <h3>Intergalactic Senate — 2187</h3>
+                        <p>Our signature fantasy committee. Martian water rights, AI personhood, and trade routes across
+                            the asteroid belt.</p>
+                        <div class="difficulty"><i class="on"></i><i class="on"></i><i class="on"></i><i
+                                class="on"></i><i class="on"></i></div>
+                    </div>
+                    <a class="comm-register" href="#register">Allocate Portfolio</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Conference info -->
+    <section class="conference" id="conference">
+        <div class="conference-grid">
+            <div class="conference-sticky">
+                <div class="conference-date">ARAMBH<br>MUN<br><span>'26</span></div>
+            </div>
+            <div class="conference-list">
+                <div class="section-label">03 — Flagship Conference</div>
+
+                <div class="conf-item">
+                    <div class="conf-edition">Edition III · Oct 23rd, 2026</div>
+                    <h4>One Day. Single committee. One campus.</h4>
+                    <p>Our flagship annual conference returns this October — 40+ delegates, a live crisis cell, and
+                        Jaipur's most feared adjudication core.</p>
+                </div>
+
+                <div class="conf-item">
+                    <div class="conf-edition">Delegate Affairs</div>
+                    <h4>Portfolios out now.</h4>
+                    <p>Country matrices for UNGA, UNHRC, UNSC and Lok Sabha released. Early-bird registration closes
+                        Oct 23, 2026.</p>
+                </div>
+
+                <div class="conf-item">
+                    <div class="conf-edition">Delegate Fee</div>
+                    <h4>₹999 early bird · ₹1,299 regular.</h4>
+                    <p>Fee includes conference kit, meals for three days, certificates, and access to the delegate
+                        socials on day two.</p>
+                </div>
+
+                <div class="conf-item">
+                    <div class="conf-edition">Outreach</div>
+                    <h4>MUN Mentorship Circles.</h4>
+                    <p>Weekly Saturday sessions on ROP, position papers, and public speaking — free for first-time
+                        delegates from any college in NCR.</p>
+                </div>
+
+                <div class="conf-item">
+                    <div class="conf-edition">Legacy</div>
+                    <h4>Nine editions of firsts.</h4>
+                    <p>From a classroom of 30 in 2023 to North West India's largest student-run MUN Club . Our alumni
+                        now work in
+                        various places of national importance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secretariat -->
+    <section class="secretariat" id="secretariat">
+        <div class="section-label section-label--light section-label--center">04 — The Secretariat</div>
+        <h2 class="secretariat-title">Minds behind <em>the motion.</em></h2>
+
+        <div class="sec-group sec-group--center">
+            <h3 class="sec-group-title">Faculty Co-ordinators</h3>
+            <div class="sec-grid">
+                <article class="sec-card">
+                    <div class="sec-flag sec-flag--gold"></div>
+                    <div class="sec-photo-wrap">
+                        <img src="#" alt="Dr. Shiv Priya" class="sec-photo">
+                    </div>
+                    <div class="sec-role">Faculty Co-ordinator</div>
+                    <h5>Dr. Shiv Priya</h5>
+                    <div class="sec-pos">Assistant Professor , English Department</div>
+                    <p class="sec-quote">"A good delegate changes the debate. A great one changes the room."</p>
+                </article>
+
+                <article class="sec-card">
+                    <div class="sec-flag sec-flag--orange"></div>
+                    <div class="sec-photo-wrap">
+                        <img src="#" alt="Mrs. Sanju Chaudhary" class="sec-photo">
+                    </div>
+                    <div class="sec-role">Faculty Co-ordinator</div>
+                    <h5>Mrs. Sanju Chaudhary</h5>
+                    <div class="sec-pos">Associate Professor , Information Technology Department</div>
+                    <p class="sec-quote">"Procedure is not a cage. It is the arena."</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="sec-group">
+            <h3 class="sec-group-title">Student Co-ordinators</h3>
+            <div class="sec-grid sec-grid--row">
+                <article class="sec-card">
+                    <div class="sec-flag sec-flag--cream"></div>
+                    <div class="sec-photo-wrap">
+                        <img src="#" alt="Nishant Kumar" class="sec-photo">
+                    </div>
+                    <div class="sec-role">Student Co-ordinator</div>
+                    <h5>Nishant Kumar</h5>
+                    <div class="sec-pos">V <sup>th</sup> Sem , CSE Department</div>
+                    <p class="sec-quote">"Every portfolio is a passport. Use it well."</p>
+                </article>
+
+                <article class="sec-card">
+                    <div class="sec-flag sec-flag--saffron"></div>
+                    <div class="sec-photo-wrap">
+                        <img src="#" alt="Keshav Saini" class="sec-photo">
+                    </div>
+                    <div class="sec-role">Student Co-ordinator</div>
+                    <h5>Keshav Saini</h5>
+                    <div class="sec-pos">V <sup>th</sup> Sem , IT Department</div>
+                    <p class="sec-quote">"History doesn't repeat, but it does rhyme — and I write the rhymes."</p>
+                </article>
+
+                <article class="sec-card">
+                    <div class="sec-flag sec-flag--gold"></div>
+                    <div class="sec-photo-wrap">
+                        <img src="#" alt="Shivansh Dwivedi" class="sec-photo">
+                    </div>
+                    <div class="sec-role">Student Co-ordinator</div>
+                    <h5>Shivansh Dwivedi</h5>
+                    <div class="sec-pos">III <sup>rd</sup> Sem , IT Department</div>
+                    <p class="sec-quote">"Never doubt that you are valuable and capable of changing the world."</p>
+                </article>
+
+                <article class="sec-card">
+                    <div class="sec-flag sec-flag--orange"></div>
+                    <div class="sec-photo-wrap">
+                        <img src="#" alt="Ronak Dev" class="sec-photo">
+                    </div>
+                    <div class="sec-role">Student Co-ordinator</div>
+                    <h5>Ronak Dev</h5>
+                    <div class="sec-pos">III <sup>rd</sup> Sem , Mech Department</div>
+                    <p class="sec-quote">"The ink may be imaginary, but the words change the world."</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration -->
+    <section class="register" id="register">
+        <div class="section-label section-label--center">05 — Rise</div>
+        <h2 class="register-giant">The floor<br>is <em>yours.</em></h2>
+
+        <form class="register-form" id="registerForm">
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Full name" required>
+                <input type="email" name="email" placeholder="Email address" required>
+            </div>
+            <div class="form-row">
+                <input type="text" name="institution" placeholder="College / Institution" required>
+                <select name="committee" required>
+                    <option value="" disabled selected>Preferred committee</option>
+                    <option>UNGA — DISEC</option>
+                    <option>UNHRC</option>
+                    <option>UNSC — 1971</option>
+                    <option>Lok Sabha</option>
+                    <option>Intergalactic Senate</option>
+                </select>
+            </div>
+            <button type="submit"><span>Register as Delegate</span></button>
+            <p class="form-note" id="formNote"></p>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <img src="resources/club_logo.jpeg" alt="SKIT Logo" class="footer-logo">
+            <span>© 2026 SKIT MUN CLUB</span>
+        </div>
+        <div class="footer-links">
+            <a href="#">Instagram</a> ·
+            <a href="#">Source</a> ·
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=skit.mun.club@gmail.com" target="_blank"
+                rel="noopener noreferrer">skit.mun.club@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>
