@@ -129,7 +129,7 @@ Optional locality-level pages:
     - bottom border
 - **Navbar Logo**:
   - Octagon-chamfered geometric badge.
-  - Displays `resources/club_logo.jpeg`.
+  - Displays `assets/icons/club_logo.jpeg`.
   - Positioned beside `SKIT MUN CLUB.` text.
   - Interactive micro-hover effects.
 - **Action Button**:
@@ -146,7 +146,7 @@ Optional locality-level pages:
 # 4. Preloader
 
 - Displays the society club emblem:
-  - `resources/club_logo.jpeg`
+  - `assets/icons/club_logo.jpeg`
 - Circular orange border using `var(--orange)`.
 - Uppercase subtext:
   - `SKIT MUN CLUB · Est. 2020`
