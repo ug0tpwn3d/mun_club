@@ -19,18 +19,25 @@ The platform should maintain a premium diplomatic/editorial aesthetic while rema
 
 The global navigation should provide access to:
 
-- Home
-- About
-- Conference
-- Committees
-- Secretariat
-- Resources
-- MUN Directory
-- Media
-- Contact
-- Registration
+- **Home** (`/` or `#hero`)
+- **About** (with dropdown):
+  - Overview / Manifesto (`#about` or `/about`)
+  - Secretariat (`#secretariat` or `/secretariat`)
+  - Executive Board (`/executive-board`)
+- **Guides** (with dropdown):
+  - Delegate Resources (`/resources`)
+  - Rules of Procedure (`/resources/procedure`)
+  - Position Paper Guide (`/resources/writing`)
+  - Committee Guides (`/resources/committee-guides`)
+- **Media** (with dropdown):
+  - Gallery (`/media/gallery`)
+  - Videos (`/media/videos`)
+  - Press Releases (`/media/press`)
+- **FAQ** (`#faq` or `/faq`)
+- **Contact** (`#contact` or `/contact`)
+- **Register** (Action CTA button)
 
-The exact visible navigation may collapse into a mobile menu.
+The exact visible navigation may collapse into a mobile menu on smaller screens.
 
 ---
 
