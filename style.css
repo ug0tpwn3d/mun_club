@@ -1381,7 +1381,7 @@ a {
 }
 
 .footer-top {
-    padding: 5rem 8vw 4rem;
+    padding: 3.5rem 8vw 3.5rem;
 }
 
 .footer-grid {
@@ -1462,7 +1462,7 @@ a {
 
 /* Human Not AI Badge */
 .footer-foot-wrap {
-    margin-top: 1.25rem;
+    margin-top: 2rem;
     width: 228px;
     max-width: 100%;
 }
@@ -1494,6 +1494,7 @@ a {
     margin-bottom: 1.8rem;
     position: relative;
     display: inline-block;
+    padding-bottom: 2px;
 }
 
 .footer-col-heading::after {
@@ -1506,10 +1507,12 @@ a {
     background: var(--orange);
 }
 
+/* All column variants get the same orange underline */
 .footer-col-heading--pink::after,
 .footer-col-heading--yellow::after,
 .footer-col-heading--white::after {
     background: var(--orange);
+    display: block;
 }
 
 /* Links list */
@@ -1519,13 +1522,14 @@ a {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: .75rem;
+    gap: 1.1rem;
 }
 
 .footer-links-list a {
     text-decoration: none;
     color: var(--cream-dim);
     font-size: .88rem;
+    line-height: 1.5;
     transition: color .2s, transform .2s;
     display: inline-block;
 }
@@ -1572,40 +1576,30 @@ a {
     align-items: center;
     justify-content: center;
     gap: .6rem;
-    background: color-mix(in srgb, var(--green) 20%, var(--black-2));
+    background: color-mix(in srgb, var(--green) 38%, var(--black-2));
     color: var(--cream);
-    border: 1px solid var(--green);
+    border: 1.5px solid color-mix(in srgb, var(--green) 80%, var(--white));
     font-size: .75rem;
     font-weight: 800;
     letter-spacing: .15em;
     text-transform: uppercase;
     padding: .95rem 1.4rem;
     border-radius: 99px;
-    box-shadow: 3.5px 3.5px 0 var(--black-2);
+    box-shadow: 3.5px 3.5px 0 color-mix(in srgb, var(--green) 30%, transparent);
     text-decoration: none;
     transition: transform .15s, box-shadow .15s, background .2s, color .2s;
+}
+
+.footer-btn-whatsapp svg {
+    flex-shrink: 0;
+    vertical-align: middle;
 }
 
 .footer-btn-whatsapp:hover {
     background: var(--green);
     color: var(--black);
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 var(--black-2);
-}
-
-.footer-conf-info {
-    margin-top: .4rem;
-}
-
-.footer-conf-name {
-    font-size: .82rem;
-    font-weight: 800;
-    color: var(--cream);
-}
-
-.footer-conf-sub {
-    font-size: .75rem;
-    color: var(--cream-dim);
+    box-shadow: 5px 5px 0 color-mix(in srgb, var(--green) 40%, transparent);
 }
 
 .footer-back-top {
@@ -1639,13 +1633,13 @@ a {
     letter-spacing: .15em;
     text-transform: uppercase;
     color: var(--cream-dim);
-    border-top: 1px solid var(--line-soft);
+    border-top: 1px solid color-mix(in srgb, var(--cream) 28%, transparent);
 }
 
 .footer-legal-links {
     display: flex;
     align-items: center;
-    gap: .8rem;
+    gap: 1.4rem;
     flex-wrap: wrap;
 }
 
@@ -1655,12 +1649,20 @@ a {
     transition: color .2s;
 }
 
+/* Email address shown in normal case, not all-caps */
+.footer-legal-links a[href^="mailto"] {
+    text-transform: lowercase;
+    letter-spacing: 0;
+}
+
 .footer-legal-links a:hover {
     color: var(--orange);
 }
 
 .footer-legal-sep {
-    color: var(--line-soft);
+    color: color-mix(in srgb, var(--cream) 30%, transparent);
+    font-weight: 400;
+    font-size: .85rem;
 }
 
 /* Legacy .footer fallback */

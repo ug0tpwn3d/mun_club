@@ -1477,19 +1477,7 @@ body:has(.nav--mobile-open) {
     .footer-top {
         padding: 3.5rem 1.5rem 2.5rem;
     }
-    .footer-ribbon {
-        padding: 2.5rem 1.25rem;
-    }
-    .footer-ribbon-title {
-        font-size: clamp(2rem, 9vw, 3.8rem);
-        margin-bottom: 1rem;
-    }
-    .footer-ribbon-badge {
-        font-size: .65rem;
-        padding: .45rem 1rem;
-        max-width: 100%;
-        word-break: break-word;
-    }
+
     .footer-bottom {
         padding: 1.5rem 1.5rem;
     }
@@ -1515,14 +1503,7 @@ body:has(.nav--mobile-open) {
         width: 100%;
         text-align: center;
     }
-    .footer-ribbon {
-        padding: 2.2rem 1rem;
-    }
-    .footer-ribbon-title {
-        font-size: clamp(1.8rem, 8.5vw, 3.2rem);
-        line-height: 1;
-        letter-spacing: .02em;
-    }
+
     .footer-bottom {
         padding: 1.5rem 1.25rem;
         flex-direction: column;

@@ -279,10 +279,10 @@ The `404.html` page uses its own `404.js` (mouse parallax on the `404` number te
 
 ## 9. Logo / Media
 
-- **Canonical logo path:** `/assets/icons/club_logo.jpeg`
+- **Canonical logo path:** `/assets/images/logo/club_logo.jpeg`
 - Used in: preloader, nav badge, footer, and meta
 - All `src="#"` photo placeholders on sec-cards hide themselves via `img[src="#"] { display: none }` in style.css
-- `assets/images/logo/club_logo.jpeg` is a legacy duplicate — do not create new references to it
+- All club branding assets (logo, favicon, foot badges) live in `assets/images/logo/`
 
 ---
 
@@ -356,7 +356,7 @@ Structured JS files exist but are **not yet wired to the HTML pages**. They cont
 | Instagram link | Footer `href="#"` — update when handle confirmed |
 | Source link | Footer `href="#"` — update with GitHub repo URL |
 | Registration form | Currently fake submit — wire to backend/Formspree/Google Forms |
-| `assets/images/logo/club_logo.jpeg` | Legacy duplicate — can be deleted once confirmed safe |
+| `assets/images/logo/` | Consolidated branding directory (club_logo, favicon, foot badges) |
 | `conference/arambh-mun-2026/index.html` | Expanded conference page — partially built |
 | `directory/index.html` | MUN directory — stub exists, no real data |
 | Mobile nav close on outside click | Currently only closes on link click, not backdrop tap |
