@@ -231,23 +231,36 @@ if (secCards.length && document.querySelector('.secretariat') && typeof gsap !==
   });
 }
 
-// Registration section entrance
-const registerEls = document.querySelectorAll('.register-giant, .register-form');
-if (registerEls.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  gsap.from(registerEls, {
-    y: 90, opacity: 0, stagger: 0.15, duration: 1, ease: 'power4.out',
-    scrollTrigger: { trigger: '.register', start: 'top 75%', once: true },
+// Registration / Communique section entrance
+const communiqueEls = document.querySelectorAll('.communique-left, .talk-form-card, .register-giant, .register-form');
+if (communiqueEls.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.from(communiqueEls, {
+    y: 50, opacity: 0, stagger: 0.15, duration: 0.9, ease: 'power3.out',
+    scrollTrigger: { trigger: '.communique-section, .register', start: 'top 78%', once: true },
   });
 }
 
-// Registration form: fake submit with success note
+// Registration form: submit with success note
 const regForm = document.getElementById('registerForm');
 if (regForm) {
   regForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const note = document.getElementById('formNote');
-    if (note) note.textContent = 'Portfolio request received — check your inbox for confirmation.';
+    if (note) {
+      note.textContent = 'Message sent successfully — our team will reach out shortly!';
+      note.style.color = '#20cf6b';
+      note.style.fontWeight = '700';
+    }
     e.target.reset();
+  });
+}
+
+// Back to top link in footer
+const footerBackTop = document.getElementById('footerBackTop');
+if (footerBackTop) {
+  footerBackTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 

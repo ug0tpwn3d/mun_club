@@ -1004,18 +1004,266 @@ a {
     font-style: italic !important;
 }
 
-/* ============ Registration ============ */
-.register {
-    padding: 22vh 8vw;
-    text-align: center;
-    overflow: hidden;
-}
-
+/* ============ Communique / Registration Section (Image 1 Inspo) ============ */
 .register--standalone {
     padding-top: 12rem;
     min-height: calc(100vh - 120px);
 }
 
+.communique-section {
+    padding: 9rem 8vw 8rem;
+    position: relative;
+    background: #111019;
+    color: var(--cream);
+    overflow: hidden;
+}
+
+.communique-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 1.2rem;
+}
+
+.communique-pill {
+    display: inline-flex;
+    align-items: center;
+    background: #ff2e7e;
+    color: #fff;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    padding: .45rem 1.2rem;
+    border-radius: 4px;
+}
+
+.communique-meta {
+    font-size: .68rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+}
+
+.communique-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Left Column */
+.communique-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.talk-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: .95;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.talk-badge {
+    display: inline-block;
+    background: #ffd233;
+    color: #000;
+    padding: .2rem .8rem;
+    border: 3.5px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    transform: rotate(-1deg);
+    margin-top: .4rem;
+}
+
+.talk-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 42ch;
+}
+
+.communique-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    border-radius: 6px;
+    border: 2.5px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+    font-family: var(--font-sans);
+}
+
+.contact-card-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+
+.contact-card-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.contact-card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card-label {
+    font-size: .62rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    font-weight: 800;
+    opacity: .75;
+    line-height: 1.2;
+}
+
+.contact-card-val {
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.contact-card-arrow {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.contact-card--white {
+    background: #ffffff;
+    color: #000;
+}
+
+.contact-card--yellow {
+    background: #ffd233;
+    color: #000;
+}
+
+.contact-card--green {
+    background: #20cf6b;
+    color: #000;
+}
+
+/* Right Column: Form Card */
+.talk-form-card {
+    background: #ffffff;
+    border: 3.5px solid #000;
+    box-shadow: 8px 8px 0 #000;
+    border-radius: 6px;
+    padding: 2.8rem 2.4rem;
+    color: #000;
+}
+
+.talk-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
+.talk-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.talk-field--full {
+    grid-column: 1 / -1;
+}
+
+.talk-field label {
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: .45rem;
+}
+
+.talk-field input,
+.talk-field select,
+.talk-field textarea {
+    width: 100%;
+    padding: .9rem 1rem;
+    border: 2px solid #000;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: .88rem;
+    color: #000;
+    background: #fff;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.talk-field input:focus,
+.talk-field select:focus,
+.talk-field textarea:focus {
+    border-color: #ff2e7e;
+    box-shadow: 0 0 0 2px rgba(255, 46, 126, 0.25);
+}
+
+.talk-field input::placeholder,
+.talk-field textarea::placeholder {
+    color: #888;
+}
+
+.talk-submit-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    background: #ff2e7e;
+    color: #fff;
+    border: 2.5px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    padding: 1.1rem;
+    font-family: var(--font-sans);
+    font-size: .85rem;
+    font-weight: 800;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform .15s, box-shadow .15s, background .15s;
+}
+
+.talk-submit-btn:hover {
+    background: #e6226e;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+
+.talk-submit-btn svg {
+    transition: transform .2s;
+}
+
+.talk-submit-btn:hover svg {
+    transform: translateX(3px) translateY(-1px);
+}
+
+/* Legacy register form styles preserved for standalone registration.html */
 .register-giant {
     font-family: var(--font-serif);
     font-size: clamp(3rem, 9vw, 8rem);
@@ -1093,13 +1341,302 @@ a {
     margin-top: .5rem;
 }
 
-@media (max-width: 640px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
+/* ============ Footer Overhaul (Image 2 Inspo) ============ */
+.site-footer {
+    background: #111019;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
 }
 
-/* ============ Footer ============ */
+.footer-top {
+    padding: 5rem 8vw 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+    gap: 3.5rem;
+}
+
+/* Col 1 Brand */
+.footer-brand-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-emblem-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.footer-emblem-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-brand-text {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: .05em;
+    color: #ffffff;
+}
+
+.footer-brand-tagline {
+    font-size: .88rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.8rem;
+    max-width: 32ch;
+}
+
+.footer-socials {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background .2s, color .2s, border-color .2s, transform .2s;
+}
+
+.footer-social-link:hover {
+    background: #ff2e7e;
+    border-color: #000;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Headings */
+.footer-col-heading {
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-col-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+.footer-col-heading--pink::after { background: #ff2e7e; }
+.footer-col-heading--yellow::after { background: #ffd233; }
+.footer-col-heading--white::after { background: rgba(255, 255, 255, 0.3); }
+
+/* Links list */
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.footer-links-list a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: .88rem;
+    transition: color .2s, transform .2s;
+    display: inline-block;
+}
+
+.footer-links-list a:hover {
+    color: #ffd233;
+    transform: translateX(3px);
+}
+
+/* Col 4 Action buttons */
+.footer-actions-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    background: #ff2e7e;
+    color: #ffffff;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: .95rem 1.4rem;
+    border-radius: 4px;
+    border: 2px solid #000;
+    box-shadow: 3.5px 3.5px 0 #000;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+}
+
+.footer-btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+.footer-btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    background: #20cf6b;
+    color: #ffffff;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: .95rem 1.4rem;
+    border-radius: 4px;
+    border: 2px solid #000;
+    box-shadow: 3.5px 3.5px 0 #000;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+}
+
+.footer-btn-whatsapp:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+.footer-conf-info {
+    margin-top: .4rem;
+}
+
+.footer-conf-name {
+    font-size: .82rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.footer-conf-sub {
+    font-size: .75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-back-top {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: .72rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: .6rem;
+    transition: color .2s;
+}
+
+.footer-back-top:hover {
+    color: #ffd233;
+}
+
+/* Middle Ribbon Banner */
+.footer-ribbon {
+    background: #ffd233;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+}
+
+.footer-ribbon-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 9vw, 6.8rem);
+    font-weight: 900;
+    color: #ff2e7e;
+    letter-spacing: -.02em;
+    line-height: .95;
+    margin-bottom: 1.4rem;
+    text-shadow: 3px 3px 0 #000, 6px 6px 0 rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+.footer-ribbon-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    color: #000000;
+    border: 2.5px solid #000000;
+    box-shadow: 3.5px 3.5px 0 #000000;
+    border-radius: 99px;
+    padding: .5rem 1.6rem;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+/* Bottom Legal Bar */
+.footer-bottom {
+    background: #000000;
+    padding: 1.8rem 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.footer-legal-links a:hover {
+    color: #ffd233;
+}
+
+.footer-legal-sep {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* Legacy .footer fallback */
 .footer {
     padding: 3rem 8vw;
     display: flex;
@@ -1136,6 +1673,34 @@ a {
 .footer-links a:hover {
     color: var(--orange);
 }
+
+@media (max-width: 992px) {
+    .communique-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .talk-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-legal-links {
+        justify-content: center;
+    }
+}
+
 
 /* ============================================================
 /* ============================================================
