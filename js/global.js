@@ -26,23 +26,27 @@ function initNavToggle() {
     nav.appendChild(btn);
 
     const links = nav.querySelector('.nav-links');
-    btn.addEventListener('click', () => {
-        const isOpen = btn.classList.toggle('open');
-        if (links) {
-            links.classList.toggle('mobile-open', isOpen);
-            nav.classList.toggle('nav--mobile-open', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (links) links.setAttribute('data-lenis-prevent', '');
+
+    function setNavOpen(isOpen) {
+        btn.classList.toggle('open', isOpen);
+        if (links) links.classList.toggle('mobile-open', isOpen);
+        nav.classList.toggle('nav--mobile-open', isOpen);
+        document.documentElement.classList.toggle('nav-open', isOpen);
+        document.body.classList.toggle('nav-open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        if (typeof lenis !== 'undefined' && lenis) {
+            isOpen ? lenis.stop() : lenis.start();
         }
+    }
+
+    btn.addEventListener('click', () => {
+        setNavOpen(!btn.classList.contains('open'));
     });
 
     if (links) {
         links.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                btn.classList.remove('open');
-                links.classList.remove('mobile-open');
-                nav.classList.remove('nav--mobile-open');
-                document.body.style.overflow = '';
-            });
+            a.addEventListener('click', () => setNavOpen(false));
         });
     }
 }
