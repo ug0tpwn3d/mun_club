@@ -105,13 +105,18 @@ if (dot && ring && typeof gsap !== 'undefined') {
 const preloader = document.getElementById('preloader');
 if (preloader && typeof gsap !== 'undefined') {
   gsap.timeline()
-    .to('.preloader-logo', { scale: 1, opacity: 1, duration: 0.6, ease: 'power3.out' })
-    .to('.preloader-tag', { opacity: 1, duration: 0.5 }, '-=.2')
-    .to('#preloader', { yPercent: -100, duration: 0.8, ease: 'power4.inOut', delay: 0.4 })
+    .to('.preloader-logo', { scale: 1, opacity: 1, duration: 0.35, ease: 'power2.out' })
+    .to('.preloader-tag', { opacity: 1, duration: 0.25 }, '-=.15')
+    .to('#preloader', { yPercent: -100, duration: 0.5, ease: 'power3.inOut', delay: 0.05 })
     .set('#preloader', { display: 'none' })
-    .from('.hero-title .line > span', { yPercent: 110, duration: 1, stagger: 0.12, ease: 'power4.out' }, '-=.5')
-    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=.3')
-    .from('.piece', { scale: 0, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'back.out(1.6)' }, '-=.6');
+    .from('.hero-title .line > span', { yPercent: 110, duration: 0.65, stagger: 0.08, ease: 'power3.out' }, '-=.35')
+    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, '-=.25')
+    .from('.piece', { scale: 0, opacity: 0, duration: 0.55, stagger: 0.05, ease: 'back.out(1.4)' }, '-=.35');
+} else if (typeof gsap !== 'undefined' && document.querySelector('.hero-title')) {
+  gsap.timeline()
+    .from('.hero-title .line > span', { yPercent: 110, duration: 0.65, stagger: 0.08, ease: 'power3.out' })
+    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, '-=.25')
+    .from('.piece', { scale: 0, opacity: 0, duration: 0.55, stagger: 0.05, ease: 'back.out(1.4)' }, '-=.35');
 }
 
 // Exploded view: pieces scatter out of the hero on scroll
