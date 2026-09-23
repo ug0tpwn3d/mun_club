@@ -34,13 +34,11 @@
 
 html {
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 html,
 body {
     background: var(--black);
-    overflow-x: hidden;
 }
 
 body {
@@ -49,7 +47,7 @@ body {
     flex-direction: column;
     color: var(--cream);
     font-family: var(--font-sans);
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 ::selection {
