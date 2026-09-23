@@ -29,3 +29,5 @@ yarn-error.log*
 .temp/
 .cache/
 instructions/
+# TestSprite
+testsprite_tests/
