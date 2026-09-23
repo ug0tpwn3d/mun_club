@@ -172,7 +172,7 @@ if (track && window.innerWidth > 768 && typeof gsap !== 'undefined' && typeof Sc
     scrollTrigger: {
       trigger: '.committees', start: 'top top',
       end: () => '+=' + getScroll(),
-      pin: true, scrub: 1, invalidateOnRefresh: true,
+      pin: true, pinSpacing: true, scrub: 1, invalidateOnRefresh: true,
     },
   });
 }
@@ -276,7 +276,8 @@ if (sectionLabels.length && typeof gsap !== 'undefined' && typeof ScrollTrigger 
   });
 }
 
-// Recalculate triggers on resize
+// Recalculate triggers on resize and load
 if (typeof ScrollTrigger !== 'undefined') {
   addEventListener('resize', () => ScrollTrigger.refresh());
+  addEventListener('load', () => ScrollTrigger.refresh());
 }
