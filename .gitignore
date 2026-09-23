@@ -9,6 +9,10 @@ desktop.ini
 *.sublime-project
 *.sublime-workspace
 
+# AI Agent Workflows & Tooling
+.agent/
+.agents/
+
 # Node & Package Managers
 node_modules/
 npm-debug.log*
@@ -20,7 +24,8 @@ yarn-error.log*
 .env.local
 .env.*.local
 
-# Temporary & Log files
+# Temporary, Docs & Log files
 *.log
 .temp/
 .cache/
+instructions/
