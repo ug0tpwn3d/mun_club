@@ -4,21 +4,307 @@
    Committees Page Styles — /css/pages/committees.css
    ============================================================ */
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* ── Section Scroll Offsets ── */
+.comm-section {
+    scroll-margin-top: 110px;
+    margin-bottom: 5rem;
+}
+
+.comm-section:last-of-type {
+    margin-bottom: 2rem;
+}
+
+/* ── Section Jump Navigation Bar ── */
+.comm-jump-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem auto 3.5rem;
+    max-width: 680px;
+}
+
+.comm-jump-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--line-soft);
+    border-radius: 99px;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.comm-jump-pill svg {
+    color: var(--orange);
+    transition: transform 0.2s ease;
+}
+
+.comm-jump-pill:hover {
+    background: color-mix(in srgb, var(--orange) 12%, transparent);
+    border-color: var(--orange);
+    color: var(--orange);
+    transform: translateY(-2px);
+}
+
+.comm-jump-pill:hover svg {
+    transform: scale(1.1);
+}
+
+/* ── Committee Card Enhancements ── */
 .comm-card-title {
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     margin-bottom: .6rem;
     color: var(--cream);
+    line-height: 1.25;
 }
 
 .comm-card-desc {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.65;
 }
 
 .comm-difficulty {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
+}
+
+.comm-card-actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .comm-btn {
-    padding: .7rem 1.6rem;
+    padding: .75rem 1.6rem;
+}
+
+/* ── Section Headers ── */
+.comm-section-header {
+    text-align: center;
+    margin-bottom: 2.2rem;
+}
+
+.comm-section-header .section-label {
+    margin-bottom: 0.8rem;
+    justify-content: center;
+}
+
+.comm-section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.9rem;
+    color: var(--cream);
+}
+
+.comm-section-title em {
+    color: var(--orange);
+    font-style: italic;
+    font-weight: 300;
+}
+
+.comm-section-desc {
+    color: var(--cream-dim);
+    font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+    line-height: 1.7;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* ── Google Drive Embed Cards ── */
+.drive-embed-card {
+    background: var(--black-2);
+    border: 1px solid var(--line-soft);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+}
+
+.drive-embed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.95rem 1.4rem;
+    background: rgba(255, 255, 255, 0.025);
+    border-bottom: 1px solid var(--line-soft);
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.drive-embed-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.drive-embed-title-wrap svg {
+    color: var(--orange);
+    flex-shrink: 0;
+}
+
+.drive-embed-filename {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+    font-family: var(--font-mono, monospace);
+}
+
+.drive-embed-actions-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.drive-top-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--cream-dim);
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--line-soft);
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.drive-top-btn:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+    background: rgba(255, 106, 26, 0.1);
+}
+
+.drive-top-btn svg {
+    transition: transform 0.2s;
+}
+
+.drive-top-btn:hover svg {
+    transform: translate(1px, -1px);
+}
+
+.drive-iframe-frame {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: #0f1012;
+}
+
+.drive-iframe-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background: #0f1012;
+}
+
+.drive-embed-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.6rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--line-soft);
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.drive-embed-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--cream-dim);
+    letter-spacing: 0.05em;
+}
+
+.drive-embed-info .dot-sep {
+    color: var(--orange);
+}
+
+.drive-footer-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.brochure-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    cursor: pointer;
+}
+
+.brochure-download-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.brochure-download-btn:hover svg {
+    transform: translateY(2px);
+}
+
+/* ── Responsive Mobile ── */
+@media (max-width: 768px) {
+    .drive-iframe-frame {
+        height: 420px;
+    }
+
+    .drive-embed-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+
+    .drive-embed-footer {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .drive-embed-info {
+        justify-content: center;
+    }
+
+    .drive-footer-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .drive-footer-btns .error-btn-primary,
+    .drive-footer-btns .error-btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .comm-card-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .comm-card-actions .comm-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
 }
