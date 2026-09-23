@@ -4,28 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delegate Registration — ARAMBH MUN 2026 | SKIT MUN CLUB</title>
+    <title>Delegate Registration — आरंभ MUN 2026 | SKIT MUN CLUB</title>
+    <meta name="description"
+        content="Register as a delegate for आरंभ MUN 2026 at SKIT Jaipur. Allocate your preferred portfolio in the All India Political Party Meet (AIPPM) chamber.">
+    <link rel="icon" type="image/png" href="/assets/images/logo/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/pages/registration.css">
 </head>
 
-<body>
+<body class="reg-page">
 
     <!-- Announcement ticker -->
     <div class="ticker">
         <div class="ticker-track">
-            <span>ARAMBH MUN 2026 · Registrations Open · Oct 23rd, 2026 · Kautaliya Seminar Hall, MBA Block ·&nbsp;</span>
-            <span>ARAMBH MUN 2026 · Registrations Open · Oct 23rd, 2026 · Kautaliya Seminar Hall, MBA Block ·&nbsp;</span>
+            <span>आरंभ MUN 2026 · Registrations Open · Oct 23rd, 2026 · Kautaliya Seminar Hall, MBA Block ·&nbsp;</span>
+            <span>आरंभ MUN 2026 · Registrations Open · Oct 23rd, 2026 · Kautaliya Seminar Hall, MBA Block ·&nbsp;</span>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="nav nav--scrolled">
+    <nav class="nav">
         <a class="nav-logo" href="/">
             <span class="nav-logo-badge">
-                <img src="/assets/icons/club_logo.jpeg" alt="SKIT MUN Emblem" class="nav-logo-img">
+                <img src="/assets/images/logo/club_logo.jpeg" alt="SKIT MUN Emblem" class="nav-logo-img">
             </span>
             <span class="nav-logo-text">SKIT MUN CLUB<span class="accent">.</span></span>
         </a>
@@ -34,15 +40,23 @@
             <li class="nav-item-dropdown">
                 <a href="/pages/about.html" class="dropdown-trigger">About <span class="dropdown-caret">▾</span></a>
                 <div class="nav-dropdown-menu">
-                    <a href="/pages/about.html">Manifesto & Mission</a>
+                    <a href="/pages/about.html">Manifesto &amp; Mission</a>
                     <a href="/pages/secretariat.html">Secretariat</a>
                     <a href="/pages/leadership.html">Leadership Message</a>
                 </div>
             </li>
             <li class="nav-item-dropdown">
-                <a href="/pages/resources.html" class="dropdown-trigger">Guides <span class="dropdown-caret">▾</span></a>
+                <a href="/pages/committees.html" class="dropdown-trigger">Committees &amp; Brochure <span class="dropdown-caret">▾</span></a>
                 <div class="nav-dropdown-menu">
-                    <a href="/pages/committees.html">Chambers Matrix</a>
+                    <a href="/pages/committees.html">Committees</a>
+                    <a href="/pages/committees.html#brochure">Brochure</a>
+                    <a href="/pages/committees.html#matrix">Portfolio Matrix</a>
+                </div>
+            </li>
+            <li class="nav-item-dropdown">
+                <a href="/pages/resources.html" class="dropdown-trigger">Guides <span
+                        class="dropdown-caret">▾</span></a>
+                <div class="nav-dropdown-menu">
                     <a href="/resources/rules.html">Rules of Procedure</a>
                     <a href="/resources/position-paper.html">Position Papers</a>
                     <a href="/resources/resolution-writing.html">Resolution Writing</a>
@@ -57,57 +71,349 @@
                 </div>
             </li>
             <li><a href="/pages/faq.html">FAQ</a></li>
-            <li><a href="/pages/schedule.html">Schedule</a></li>
-            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="/#communicate">Contact</a></li>
             <li><a class="nav-cta" href="/pages/registration.html"><span>Register</span></a></li>
         </ul>
     </nav>
 
-    <!-- Registration -->
-    <section class="register register--standalone">
-        <div class="section-label section-label--center">06 — Delegate Application</div>
-        <h2 class="register-giant">The floor<br>is <em>yours.</em></h2>
+    <!-- Main Registration Section -->
+    <main class="reg-container">
+        <!-- Header -->
+        <header class="reg-header">
 
-        <form class="register-form" id="registerForm">
-            <div class="form-row">
-                <input type="text" name="name" placeholder="Full name" required>
-                <input type="email" name="email" placeholder="Email address" required>
+            <h1 class="reg-title">The floor is <em>yours.</em></h1>
+            <p class="reg-subtitle">
+                Allocate your portfolio, confirm your delegation, and arrive prepared. आरंभ MUN 2026 opens October 23rd
+                at Kautaliya Seminar Hall, MBA Block, SKIT, Jaipur.
+            </p>
+
+            <!-- Quick Navigation to Committees, Brochure & Matrix -->
+            <div class="reg-header-actions">
+                <a href="/pages/committees.html" class="reg-quick-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    <span>Committees</span>
+                </a>
+                <a href="/pages/committees.html#brochure" class="reg-quick-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    <span>Brochure</span>
+                </a>
+                <a href="/pages/committees.html#matrix" class="reg-quick-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                    </svg>
+                    <span>Party Matrix</span>
+                </a>
             </div>
-            <div class="form-row">
-                <input type="text" name="institution" placeholder="College / Institution" required>
-                <select name="committee" required>
-                    <option value="" disabled selected>Preferred committee</option>
-                    <option>UNGA — DISEC</option>
-                    <option>UNHRC</option>
-                    <option>UNSC — 1971</option>
-                    <option>Lok Sabha</option>
-                    <option>Intergalactic Senate</option>
-                </select>
+        </header>
+
+        <!-- Form Card -->
+        <div class="reg-card" id="regFormCard">
+            <div class="reg-card-head">
+                <h2 class="reg-card-title">Delegate Registration &amp; Portfolio Application</h2>
+                <p class="reg-card-desc">
+                    Fill in your verified academic details. Portfolios are allocated on a rolling first-come,
+                    first-served
+                    basis by the Secretariat.
+                </p>
             </div>
-            <button type="submit"><span>Register as Delegate</span></button>
-            <p class="form-note" id="formNote"></p>
-        </form>
-    </section>
 
-    <footer class="footer">
-        <div class="footer-brand">
-            <img src="/assets/icons/club_logo.jpeg" alt="SKIT Logo" class="footer-logo">
-            <span>© 2026 SKIT MUN CLUB</span>
-        </div>
-        <div class="footer-links">
-            <a href="#">Instagram</a> ·
-            <a href="#">Source</a> ·
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=skit.mun.club@gmail.com" target="_blank" rel="noopener noreferrer">skit.mun.club@gmail.com</a>
-        </div>
-    </footer>
+            <form id="registerForm" class="reg-form" autocomplete="on">
+                <!-- Section 1: Delegate Identity -->
+                <div class="reg-section-tag">1. Personal &amp; Academic Information</div>
+                <div class="reg-grid">
+                    <div class="reg-field">
+                        <label for="regName">Full Name <span class="req">*</span></label>
+                        <input type="text" id="regName" name="name" placeholder="e.g. Aarav Sharma" required>
+                    </div>
 
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            document.getElementById('formNote').textContent = 'Portfolio request received — check your inbox for confirmation.';
-            e.target.reset();
-        });
-    </script>
+                    <div class="reg-field">
+                        <label for="regEmail">Email Address <span class="req">*</span></label>
+                        <input type="email" id="regEmail" name="email" placeholder="name@domain.edu" required>
+                    </div>
+
+                    <div class="reg-field">
+                        <label for="regPhone">WhatsApp / Contact Number <span class="req">*</span></label>
+                        <input type="tel" id="regPhone" name="phone" placeholder="+91 98765 43210"
+                            pattern="[\+]?[0-9\s\-]{10,15}" required>
+                        <span class="reg-hint">For portfolio allotment and official conference communiques.</span>
+                    </div>
+
+                    <div class="reg-field">
+                        <label for="regInstitution">College / University / School <span class="req">*</span></label>
+                        <input type="text" id="regInstitution" name="institution" placeholder="e.g. SKIT Jaipur"
+                            required>
+                    </div>
+
+                    <div class="reg-field reg-field--full">
+                        <label for="regDept">Course, Department &amp; Year</label>
+                        <input type="text" id="regDept" name="dept"
+                            placeholder="e.g. B.Tech Computer Science, 2nd Year / Class 12">
+                    </div>
+                </div>
+
+                <!-- Section 2: Chamber & Portfolio -->
+                <div class="reg-section-tag">2. Chamber &amp; Portfolio Allotment</div>
+                <div class="reg-grid">
+                    <div class="reg-field reg-field--full">
+                        <label for="regCommittee">Conference Chamber <span class="req">*</span></label>
+                        <select id="regCommittee" name="committee" required>
+                            <option value="All India Political Party Meet (AIPPM) — Special Session" selected>
+                                All India Political Party Meet (AIPPM) — Special Session
+                            </option>
+                        </select>
+                        <div class="reg-agenda-box">
+                            <strong>Chamber Agenda:</strong>
+                            “Addressing Youth Unemployment, Fair Examination Reforms and Reservation for Equal
+                            Opportunities in India.”
+                        </div>
+                    </div>
+
+                    <div class="reg-field">
+                        <label for="regPref1">Portfolio Preference 1 <span class="req">*</span></label>
+                        <input type="text" id="regPref1" name="pref1"
+                            placeholder="e.g. Minister of Education / Party Leader" required>
+                        <span class="reg-hint">Enter your preferred political leader or party portfolio.</span>
+                    </div>
+
+                    <div class="reg-field">
+                        <label for="regPref2">Portfolio Preference 2</label>
+                        <input type="text" id="regPref2" name="pref2"
+                            placeholder="e.g. Leader of Opposition / Alternative Portfolio">
+                        <span class="reg-hint">Secondary preference in case primary choice is already allocated.</span>
+                    </div>
+
+                    <div class="reg-field reg-field--full">
+                        <label for="regExperience">Prior Parliamentary / MUN Experience <span
+                                class="req">*</span></label>
+                        <select id="regExperience" name="experience" required>
+                            <option value="" disabled selected>Select your experience level..</option>
+                            <option value="First-Timer">First-Timer (Maiden MUN / Parliamentary Simulation)</option>
+                            <option value="Beginner">Beginner (1–2 Conferences)</option>
+                            <option value="Intermediate">Intermediate (3–5 Conferences)</option>
+                            <option value="Advanced">Advanced (6+ Conferences / Executive Board Experience)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section 3: Notice & Terms -->
+                <div class="reg-info-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <div>
+                        <strong>Allocation Notice:</strong> Portfolios are allocated on merit and registration
+                        timestamps.
+                        You will receive an official confirmation via email and WhatsApp with the Country/Party Matrix
+                        within 24–48 hours.
+                    </div>
+                </div>
+
+                <label class="reg-agree">
+                    <input type="checkbox" name="agree" required>
+                    <span class="reg-agree-text">
+                        I confirm that all submitted details are accurate, and I agree to uphold chamber decorum, study
+                        the
+                        assigned portfolio, and abide by the <a href="/resources/rules.html">Rules of Procedure</a>.
+                    </span>
+                </label>
+
+                <button type="submit" class="reg-submit-btn" id="regSubmitBtn">
+                    <span>Submit Application</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+                <div class="form-note" id="formNote"></div>
+            </form>
+        </div>
+
+        <!-- Success Confirmation State (Revealed after submission) -->
+        <div class="reg-success-card" id="regSuccessCard">
+            <div class="reg-success-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h2 class="reg-success-title">Application Received!</h2>
+            <p class="reg-success-desc">
+                Your portfolio application for <strong>आरंभ MUN 2026</strong> has been registered with the Secretariat.
+                Our Delegate Affairs core is reviewing your preferences.
+            </p>
+
+            <div class="reg-success-box">
+                <div class="reg-success-row">
+                    <span class="reg-success-row-label">Delegate Name</span>
+                    <span class="reg-success-row-val" id="successDelegateName">Delegate</span>
+                </div>
+                <div class="reg-success-row">
+                    <span class="reg-success-row-label">Assigned Chamber</span>
+                    <span class="reg-success-row-val" id="successCommittee">AIPPM — Special Session</span>
+                </div>
+                <div class="reg-success-row">
+                    <span class="reg-success-row-label">Requested Portfolio</span>
+                    <span class="reg-success-row-val" id="successPref">Preference 1</span>
+                </div>
+                <div class="reg-success-row">
+                    <span class="reg-success-row-label">Notification Email</span>
+                    <span class="reg-success-row-val" id="successEmail">email@domain.com</span>
+                </div>
+            </div>
+
+            <div class="reg-success-actions">
+                <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer"
+                    class="reg-success-btn-primary">
+                    <span>Join WhatsApp Channel</span>
+                </a>
+                <a href="/pages/resources.html" class="reg-success-btn-secondary">
+                    <span>Read AIPPM Study Guides</span>
+                </a>
+                <button type="button" class="reg-success-btn-secondary" id="regResetBtn">
+                    <span>Register Another Delegate</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+<!-- Site Footer -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-grid">
+            <!-- Column 1: Brand & Socials -->
+            <div class="footer-brand-box">
+                <div class="footer-emblem-wrap">
+                    <img src="/assets/images/logo/club_logo.jpeg" alt="SKIT MUN Logo" class="footer-emblem-img">
+                    <span class="footer-brand-text">SKIT MUN CLUB</span>
+                </div>
+                <p class="footer-brand-tagline">
+                    Empowering the next generation of global leaders through diplomacy and debate.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/skit.mun.club" target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer-social-link" aria-label="X / Twitter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer-social-link" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer-social-link" aria-label="YouTube">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                            </path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer-social-link" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer-foot-wrap">
+                    <img src="/assets/images/logo/foot.png" alt="Made by Human Not AI" class="footer-foot-img">
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col">
+                <div class="footer-col-heading footer-col-heading--pink">QUICK LINKS</div>
+                <ul class="footer-links-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/about.html">About SKIT MUN</a></li>
+                    <li><a href="/pages/committees.html">Committees &amp; Brochure</a></li>
+                    <li><a href="/pages/secretariat.html">Secretariat</a></li>
+                    <li><a href="/pages/leadership.html">Leadership</a></li>
+                    <li><a href="/#communicate">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Resources -->
+            <div class="footer-col">
+                <div class="footer-col-heading footer-col-heading--yellow">RESOURCES</div>
+                <ul class="footer-links-list">
+                    <li><a href="/pages/resources.html">Background Guides</a></li>
+                    <li><a href="/resources/articles/what-is-mun.html">What is MUN?</a></li>
+                    <li><a href="/resources/rules.html">Rules of Procedure</a></li>
+                    <li><a href="/resources/position-paper.html">Position Papers</a></li>
+                    <li><a href="/pages/committees.html#matrix">Portfolio Matrix</a></li>
+                    <li><a href="/resources/resolution-writing.html">Resolution Writing</a></li>
+                    <li><a href="/pages/resources.html">First MUN Guide</a></li>
+                    <li><a href="/pages/committees.html#brochure">Conference Brochure</a></li>
+                    <li><a href="/pages/faq.html">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Join Us -->
+            <div class="footer-col footer-actions-col">
+                <div class="footer-col-heading footer-col-heading--white">JOIN US</div>
+                <a href="/pages/registration.html" class="footer-btn-primary">
+                    <span>REGISTER NOW</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="footer-btn-whatsapp">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.46 0 .11 5.35.11 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.29-1.65a11.92 11.92 0 0 0 5.75 1.48h.01c6.58 0 11.93-5.35 11.93-11.93 0-3.19-1.24-6.19-3.46-8.42z" />
+                    </svg>
+                    <span>JOIN CHANNEL FOR UPDATES</span>
+                </a>
+                <a href="#" class="footer-back-top" id="footerBackTop">BACK TO TOP ↑</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Legal Bar -->
+    <div class="footer-bottom">
+        <div>© 2026 SKIT MUN CLUB · ALL RIGHTS RESERVED</div>
+        <div class="footer-legal-links">
+            <a href="mailto:skitmg.mun.club@gmail.com">skitmg.mun.club@gmail.com</a>
+            <span class="footer-legal-sep">·</span>
+            <a href="/pages/privacy-policy.html">PRIVACY POLICY</a>
+            <span class="footer-legal-sep">·</span>
+            <a href="/pages/terms-of-service.html">TERMS OF SERVICE</a>
+            <span class="footer-legal-sep">·</span>
+            <a href="/pages/refund-policy.html">REFUND POLICY</a>
+        </div>
+    </div>
+</footer>
+
+    <script src="/js/pages/registration.js"></script>
 </body>
 
 </html>

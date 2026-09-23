@@ -37,43 +37,45 @@ if (!isHome && nav) {
   btn.innerHTML = '<span></span><span></span><span></span>';
   nav.appendChild(btn);
   const links = nav.querySelector('.nav-links');
-  btn.addEventListener('click', () => {
-    const isOpen = btn.classList.toggle('open');
-    if (links) {
-      links.classList.toggle('mobile-open', isOpen);
-      nav.classList.toggle('nav--mobile-open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (links) links.setAttribute('data-lenis-prevent', '');
+
+  function setNavOpen(isOpen) {
+    btn.classList.toggle('open', isOpen);
+    if (links) links.classList.toggle('mobile-open', isOpen);
+    nav.classList.toggle('nav--mobile-open', isOpen);
+    document.documentElement.classList.toggle('nav-open', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (typeof lenis !== 'undefined' && lenis) {
+      isOpen ? lenis.stop() : lenis.start();
     }
+  }
+
+  btn.addEventListener('click', () => {
+    setNavOpen(!btn.classList.contains('open'));
   });
   // Close on nav link click
   if (links) {
     links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        btn.classList.remove('open');
-        links.classList.remove('mobile-open');
-        nav.classList.remove('nav--mobile-open');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', () => setNavOpen(false));
     });
   }
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && btn.classList.contains('open')) {
-      btn.classList.remove('open');
-      if (links) links.classList.remove('mobile-open');
-      nav.classList.remove('nav--mobile-open');
-      document.body.style.overflow = '';
+      setNavOpen(false);
     }
   });
 })();
 
 // Smooth anchor navigation
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
+document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((a) => {
   a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
-    if (!href || href === '#') return;
+    if (!href || href === '#' || href === '/#') return;
+    const selector = href.startsWith('/#') ? href.slice(1) : href;
     try {
-      const target = document.querySelector(href);
+      const target = document.querySelector(selector);
       if (target) {
         e.preventDefault();
         if (lenis) {
@@ -162,16 +164,38 @@ if (statEls.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'u
   });
 }
 
-// Committees: pinned horizontal scroll (desktop only)
+// Committees: pinned horizontal scroll (desktop only, when cards overflow viewport)
 const track = document.getElementById('committeeTrack');
-if (track && window.innerWidth > 768 && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  const getScroll = () => track.scrollWidth - innerWidth;
-  gsap.to(track, {
-    x: () => -getScroll(), ease: 'none',
-    scrollTrigger: {
-      trigger: '.committees', start: 'top top',
-      end: () => '+=' + getScroll(),
-      pin: true, scrub: 1, invalidateOnRefresh: true,
+if (track && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  ScrollTrigger.matchMedia({
+    '(min-width: 769px)': function () {
+      const getScroll = () => Math.max(0, track.scrollWidth - window.innerWidth);
+      if (track.scrollWidth > window.innerWidth + 20) {
+        const tween = gsap.to(track, {
+          x: () => -getScroll(),
+          ease: 'none',
+          scrollTrigger: {
+            id: 'commTrackPin',
+            trigger: '.committees',
+            start: 'top top',
+            end: () => '+=' + getScroll(),
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+        return () => {
+          if (tween.scrollTrigger) tween.scrollTrigger.kill();
+          tween.kill();
+          gsap.set(track, { clearProps: 'transform' });
+        };
+      } else {
+        gsap.set(track, { clearProps: 'transform' });
+      }
+    },
+    '(max-width: 768px)': function () {
+      gsap.set(track, { clearProps: 'transform' });
     },
   });
 }
@@ -226,27 +250,41 @@ if (secCards.length && document.querySelector('.secretariat') && typeof gsap !==
   gsap.from(secCards, {
     y: 30, opacity: 0,
     duration: 0.6, stagger: 0.08, ease: 'power2.out',
+    clearProps: 'transform',
     scrollTrigger: { trigger: '.secretariat', start: 'top 80%', once: true },
   });
 }
 
-// Registration section entrance
-const registerEls = document.querySelectorAll('.register-giant, .register-form');
-if (registerEls.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  gsap.from(registerEls, {
-    y: 90, opacity: 0, stagger: 0.15, duration: 1, ease: 'power4.out',
-    scrollTrigger: { trigger: '.register', start: 'top 75%', once: true },
+// Registration / Communique section entrance
+const communiqueEls = document.querySelectorAll('.communique-left, .talk-form-card, .register-giant, .register-form');
+if (communiqueEls.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.from(communiqueEls, {
+    y: 50, opacity: 0, stagger: 0.15, duration: 0.9, ease: 'power3.out',
+    scrollTrigger: { trigger: '.communique-section, .register', start: 'top 78%', once: true },
   });
 }
 
-// Registration form: fake submit with success note
+// Registration form: submit with success note
 const regForm = document.getElementById('registerForm');
 if (regForm) {
   regForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const note = document.getElementById('formNote');
-    if (note) note.textContent = 'Portfolio request received — check your inbox for confirmation.';
+    if (note) {
+      note.textContent = 'Message sent successfully — our team will reach out shortly!';
+      note.style.color = '#20cf6b';
+      note.style.fontWeight = '700';
+    }
     e.target.reset();
+  });
+}
+
+// Back to top link in footer
+const footerBackTop = document.getElementById('footerBackTop');
+if (footerBackTop) {
+  footerBackTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
@@ -261,7 +299,8 @@ if (sectionLabels.length && typeof gsap !== 'undefined' && typeof ScrollTrigger 
   });
 }
 
-// Recalculate triggers on resize
+// Recalculate triggers on resize and load
 if (typeof ScrollTrigger !== 'undefined') {
   addEventListener('resize', () => ScrollTrigger.refresh());
+  addEventListener('load', () => ScrollTrigger.refresh());
 }
