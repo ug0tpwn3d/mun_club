@@ -110,6 +110,7 @@ if (preloader && typeof gsap !== 'undefined') {
     .to('#preloader', { yPercent: -100, duration: 0.8, ease: 'power4.inOut', delay: 0.4 })
     .set('#preloader', { display: 'none' })
     .from('.hero-title .line > span', { yPercent: 110, duration: 1, stagger: 0.12, ease: 'power4.out' }, '-=.5')
+    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=.3')
     .from('.piece', { scale: 0, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'back.out(1.6)' }, '-=.6');
 }
 
@@ -130,8 +131,8 @@ if (pieces.length && document.querySelector('.hero') && typeof gsap !== 'undefin
 const heroTitle = document.querySelector('.hero-title');
 if (heroTitle && document.querySelector('.hero') && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.to('.hero-title', {
-    scale: 0.85, opacity: 0, y: -120, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: '70% top', scrub: true },
+    scale: 0.88, opacity: 0, y: -80, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: '30% top', end: '85% top', scrub: true },
   });
 }
 

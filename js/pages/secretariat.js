@@ -1,4 +1,4 @@
-export const teamData = {
+const teamData = {
     faculty: [
         {
             role: "Faculty Co-ordinator",

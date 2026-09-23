@@ -4,7 +4,7 @@
  */
 
 // Site metadata
-export const siteData = {
+const siteData = {
     name: "SKIT MUN CLUB",
     institute: "Swami Keshvanand Institute of Technology, Management & Gramothan, Jaipur",
     email: "skitmg.mun.club@gmail.com",
