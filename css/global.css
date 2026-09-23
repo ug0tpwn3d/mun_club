@@ -15,16 +15,18 @@
     background: var(--black);
     color: var(--cream);
     font-family: var(--font-sans);
-    padding: 3rem 1.5rem 6rem;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .legal-container {
     width: 100%;
     max-width: 880px;
     margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+    flex: 1 0 auto;
 }
 
 .back-home-btn {
