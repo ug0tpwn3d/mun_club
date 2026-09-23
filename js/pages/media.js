@@ -47,7 +47,7 @@ const CARDS = ALL_CARDS.filter(c => c.enabled);
 const N     = CARDS.length;
 
 /* ── Carousel config ── */
-const SLOT_PX   = 320;   // horizontal distance between card centres (px)
+const SLOT_PX   = 290;   // horizontal distance between card centres (px)
 const MAX_SLOT  = 3;     // slots ±3 are visible; beyond that = hidden
 
 /* ── State ── */
@@ -56,6 +56,7 @@ let cardEls      = [];
 let dotEls       = [];
 let prevBtn, nextBtn;
 let isAnimating  = false;
+let manualNavTimer = 0;
 
 /* ════════════════════════════════════════════════════════
    BUILD
@@ -126,14 +127,23 @@ function buildControls() {
         const dot = document.createElement('button');
         dot.className = 'gallery-dot' + (i === 0 ? ' is-active' : '');
         dot.setAttribute('aria-label', `Image ${i + 1}`);
-        dot.addEventListener('click', () => goTo(i));
+        dot.addEventListener('click', () => {
+            manualNavTimer = Date.now() + 600;
+            goTo(i);
+        });
         dotsWrap.appendChild(dot);
     });
     dotEls = Array.from(dotsWrap.querySelectorAll('.gallery-dot'));
 
     /* Buttons loop: next on last → first, prev on first → last */
-    prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
-    nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+    prevBtn.addEventListener('click', () => {
+        manualNavTimer = Date.now() + 600;
+        goTo(currentIndex - 1);
+    });
+    nextBtn.addEventListener('click', () => {
+        manualNavTimer = Date.now() + 600;
+        goTo(currentIndex + 1);
+    });
 }
 
 /* ════════════════════════════════════════════════════════
@@ -157,8 +167,8 @@ function updateCarousel(animated = true) {
 
         /* Position along X axis, with slight curve (y offset) */
         const x       = slot * SLOT_PX;
-        const y       = absSlot === 0 ? 0 : absSlot === 1 ? 16 : absSlot === 2 ? 28 : 36;
-        const scale   = absSlot === 0 ? 1.08 : absSlot === 1 ? 0.88 : absSlot === 2 ? 0.76 : 0.66;
+        const y       = absSlot === 0 ? 0 : absSlot === 1 ? 14 : absSlot === 2 ? 26 : 34;
+        const scale   = absSlot === 0 ? 1.06 : absSlot === 1 ? 0.88 : absSlot === 2 ? 0.76 : 0.66;
         const bright  = absSlot === 0 ? 1    : absSlot === 1 ? 0.75 : absSlot === 2 ? 0.55 : 0.4;
         const opacity = visible ? 1 : 0;
         const zIndex  = MAX_SLOT + 2 - absSlot;
@@ -202,16 +212,19 @@ function initScrollDrive() {
     const section = document.querySelector('.curved-gallery-section');
     if (!section) return;
 
-    const STEP_PX = 160;
-    section.style.height = `calc(100vh + ${(N - 1) * STEP_PX}px)`;
+    const STEP_PX = 180;
+    const scrollTravel = (N - 1) * STEP_PX;
+    const END_BUFFER = 400;
+    section.style.height = `calc(100vh + ${scrollTravel + END_BUFFER}px)`;
 
     let lastIdx = -1;
 
     function onScroll() {
+        if (Date.now() < manualNavTimer) return;
         const rect     = section.getBoundingClientRect();
         const scrolled = -rect.top;
-        const range    = section.offsetHeight - window.innerHeight;
-        const progress = Math.max(0, Math.min(1, scrolled / range));
+        if (scrolled < 0) return;
+        const progress = Math.max(0, Math.min(1, scrolled / scrollTravel));
         const idx      = Math.round(progress * (N - 1));
         if (idx !== lastIdx) {
             lastIdx = idx;
@@ -296,14 +309,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Set all card positions instantly (no animation on load) */
     updateCarousel(false);
 
+    /* Set up scroll drive immediately */
+    initScrollDrive();
+
     /* Entrance: cards fade + drift up */
     gsap.from(cardEls, {
         opacity:  0,
-        y:        50,
-        stagger:  0.06,
-        duration: 0.7,
+        y:        30,
+        stagger:  0.04,
+        duration: 0.6,
         ease:     'power3.out',
-        onComplete: initScrollDrive,
     });
 
     /* Back-to-top */
