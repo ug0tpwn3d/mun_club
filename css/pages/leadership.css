@@ -1,0 +1,474 @@
+@import "/style.css";
+
+/* ============================================================
+   Leadership Page Styles — /css/pages/leadership.css
+   ============================================================ */
+
+/* ── Hero ── */
+.lm-hero {
+    padding: 14rem 8vw 7rem;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.lm-hero::before {
+    content: '"';
+    font-family: var(--font-serif);
+    font-size: 28rem;
+    font-weight: 900;
+    color: color-mix(in srgb, var(--orange) 8%, transparent);
+    position: absolute;
+    top: -4rem;
+    right: -2rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.lm-hero-kicker {
+    font-size: .6rem;
+    letter-spacing: .5em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.lm-hero-kicker::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--orange);
+}
+
+.lm-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 8vw, 6.5rem);
+    font-weight: 900;
+    line-height: .92;
+    max-width: 900px;
+}
+
+.lm-hero h1 em {
+    color: var(--orange);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ── Body: per-section rows, no sticky sidebar ── */
+.lm-body {
+    padding: 0 8vw;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.lm-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6vw;
+    padding: 8vh 0;
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.lm-row:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 900px) {
+    .lm-row {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .lm-hero {
+        padding: 10rem 6vw 4rem;
+    }
+
+    .lm-hero::before {
+        display: none;
+    }
+
+    .lm-body {
+        padding: 0 6vw;
+    }
+}
+
+/* ── Author card ── */
+.lm-author-card {
+    background: var(--black-2);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.lm-author-photo {
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    background: color-mix(in srgb, var(--orange) 8%, var(--black-2));
+    margin-bottom: 1rem;
+}
+
+.lm-author-photo[src="#"] {
+    min-height: 100px;
+}
+
+.lm-author-role {
+    font-size: .55rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: .4rem;
+}
+
+.lm-author-name {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: .25rem;
+}
+
+.lm-author-dept {
+    font-size: .75rem;
+    color: var(--cream-dim);
+    line-height: 1.4;
+}
+
+/* ── Page nav ── */
+.lm-nav-wrapper {
+    margin-top: 1.5rem;
+}
+
+.lm-nav-heading {
+    font-size: .55rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: .8rem;
+}
+
+.lm-nav-links {
+    list-style: none;
+    border-left: 2px solid var(--line-soft);
+    padding-left: 1.2rem;
+}
+
+.lm-nav-links li {
+    margin-bottom: .6rem;
+}
+
+.lm-nav-links a {
+    font-size: .68rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.lm-nav-links a:hover {
+    color: var(--orange);
+}
+
+/* ── Student mini-cards ── */
+.lm-student-list-heading {
+    font-size: .55rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 1.2rem;
+}
+
+.lm-student-cards-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.lm-student-mini {
+    background: var(--black-2);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    padding: 1rem;
+    /* initial state for animation */
+    opacity: 0;
+    transform: translateY(24px) scale(.96);
+}
+
+.lm-student-header {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.lm-student-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--orange) 15%, var(--black-2));
+    border: 1px solid var(--line-orange);
+    flex-shrink: 0;
+}
+
+.lm-student-name {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.lm-student-role {
+    font-size: .6rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-top: .15rem;
+}
+
+.lm-student-quote {
+    font-size: .72rem;
+    color: var(--cream-dim);
+    margin-top: .6rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* ── Conference aside box ── */
+.lm-conf-box {
+    background: var(--black-2);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.lm-conf-label {
+    font-size: .55rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: .8rem;
+}
+
+.lm-conf-title {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: .9;
+    margin-bottom: .8rem;
+}
+
+.lm-conf-title span {
+    color: var(--orange);
+}
+
+.lm-conf-desc {
+    font-size: .75rem;
+    color: var(--cream-dim);
+    line-height: 1.6;
+}
+
+/* ── Prose ── */
+.lm-prose {
+    color: var(--cream);
+}
+
+.lm-message {
+    margin-bottom: 0;
+}
+
+.lm-message-tag {
+    font-size: .6rem;
+    letter-spacing: .5em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.lm-message-tag::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line-soft);
+}
+
+.lm-message h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+}
+
+.lm-message h2 em {
+    color: var(--orange);
+    font-style: italic;
+    font-weight: 300;
+}
+
+.lm-message p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--cream-dim);
+    max-width: 68ch;
+    margin-bottom: 1.4em;
+}
+
+.lm-message p:first-of-type {
+    font-size: 1.12rem;
+    color: var(--cream);
+}
+
+.lm-pull-quote {
+    border-left: 3px solid var(--orange);
+    padding: 1.2rem 0 1.2rem 2rem;
+    margin: 3rem 0;
+}
+
+.lm-pull-quote blockquote {
+    font-family: var(--font-serif);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.3;
+}
+
+.lm-pull-quote cite {
+    display: block;
+    margin-top: .8rem;
+    font-family: var(--font-sans);
+    font-size: .65rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-style: normal;
+}
+
+.lm-message-sign {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border-top: 1px solid var(--line-soft);
+    padding-top: 2rem;
+}
+
+.lm-sign-flag {
+    width: 4px;
+    height: 48px;
+    background: var(--orange);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.lm-sign-name {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.lm-sign-role {
+    font-size: .6rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-top: .2rem;
+}
+
+.lm-order-note {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* ── Divider ── */
+.lm-divider {
+    background: var(--cream);
+    color: var(--black);
+    padding: 9rem 8vw;
+    text-align: center;
+}
+
+.lm-divider-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 300;
+    font-style: italic;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.25;
+}
+
+.lm-divider-text strong {
+    font-weight: 900;
+    font-style: normal;
+    color: var(--orange);
+}
+
+/* ── CTA ── */
+.lm-cta {
+    padding: 10rem 8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.lm-cta-label {
+    width: 100%;
+}
+
+.lm-cta h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+}
+
+.lm-cta h2 em {
+    color: var(--orange);
+    font-style: italic;
+    font-weight: 300;
+}
+
+.lm-cta p {
+    color: var(--cream-dim);
+    font-size: .9rem;
+    max-width: 50ch;
+    line-height: 1.7;
+}
+
+.lm-cta-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--black);
+    font-size: .7rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1rem 2.4rem;
+    border-radius: 99px;
+    text-decoration: none;
+    transition: background .3s, transform .2s;
+}
+
+.lm-cta-btn:hover {
+    background: var(--orange-soft);
+    transform: translateY(-2px);
+}
+
+/* ── Leadership navbar: permanent dark frosted background ── */
+.nav {
+    background: color-mix(in srgb, var(--black) 92%, transparent) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border-bottom: 1px solid var(--line-soft) !important;
+}

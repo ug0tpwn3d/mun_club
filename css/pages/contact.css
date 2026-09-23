@@ -1,0 +1,27 @@
+@import "/style.css";
+
+/* ============================================================
+   Contact Page Styles — /css/pages/contact.css
+   ============================================================ */
+
+.contact-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: .6rem;
+    color: var(--cream);
+}
+
+.contact-card-desc {
+    margin-bottom: 1rem;
+}
+
+.contact-email-link {
+    color: var(--orange);
+    font-weight: 700;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.contact-email-link:hover {
+    text-decoration: underline;
+}

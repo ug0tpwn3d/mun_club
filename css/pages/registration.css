@@ -1,0 +1,18 @@
+@import "/style.css";
+
+/* ============================================================
+   Registration Page Styles — /css/pages/registration.css
+   ============================================================ */
+
+.register--standalone {
+    padding-top: 10rem;
+    min-height: calc(100vh - 120px);
+}
+
+.form-note {
+    margin-top: 1.2rem;
+    font-size: .85rem;
+    color: var(--orange);
+    min-height: 1.5em;
+    font-weight: 500;
+}
