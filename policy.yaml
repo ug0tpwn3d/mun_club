@@ -5,8 +5,8 @@ on_http_request:
       config:
         provider: google
 
-  # allow logins *only* from acme.com
+  # allow logins *only* from gmail.com
   - expressions:
-    - "!actions.ngrok.oauth.identity.email.endsWith('@acme.com')"
+    - "!actions.ngrok.oauth.identity.email.endsWith('@gmail.com')"
     actions:
     - type: deny
