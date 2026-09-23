@@ -17,45 +17,45 @@
    ──────────────────────────────────────────────────────────*/
 const ALL_CARDS = [
     /* ── CARD 01 ─ Committee Sessions ───────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i1.jpg',  tag: 'Committee Sessions', title: 'Moderated Caucus',               sub: 'Delegates in full deliberation · ARAMBH MUN' },
+    { enabled: true, img: '/assets/images/gallery/i1.jpg', tag: 'MUN CLUN IN HEADLINES', title: 'MUN PRESS CONFERENCE', sub: 'Winners along with Judges and Faculty Co-ordinators' },
     /* ── CARD 02 ─ Oratory ──────────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i2.jpg',  tag: 'Oratory',            title: 'Delegate Address',               sub: 'Plenary speech at the General Assembly' },
+    { enabled: true, img: '/assets/images/gallery/i2.jpg', tag: 'WINNERS', title: 'TEAM SPIRIT', sub: 'Grouped together for a photograph' },
     /* ── CARD 03 ─ Opening Ceremony ─────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i3.jpg',  tag: 'Opening Ceremony',   title: 'ARAMBH MUN 2026 Inauguration',   sub: 'Lamp lighting · Kautaliya Seminar Hall' },
+    { enabled: true, img: '/assets/images/gallery/i3.jpg', tag: 'CLUB EVENT', title: 'MIC WARZ - PREPARED SPEECH COMPETITION', sub: 'Institute Level Event' },
     /* ── CARD 04 ─ Valedictory ──────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i4.jpg',  tag: 'Valedictory',        title: 'Best Delegate Award',            sub: 'Gavel trophy presentation on stage' },
+    { enabled: true, img: '/assets/images/gallery/i4.jpg', tag: 'MUN OPEN DEBATE', title: 'Best Delegate Award', sub: 'Gavel trophy presentation on stage' },
     /* ── CARD 05 ─ Diplomacy ────────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i5.jpg',  tag: 'Diplomacy',          title: 'Unmoderated Caucus',             sub: 'Coalition lobbying in the conference corridor' },
+    { enabled: true, img: '/assets/images/gallery/i5.jpg', tag: 'FRESHERS ORIENTATION', title: 'GEZ-Z PROTEST SKIT', sub: 'Club memebers engaging with freshers on stage via a skit.' },
     /* ── CARD 06 ─ Leadership ───────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i6.jpg',  tag: 'Leadership',         title: 'Secretariat Portrait',           sub: 'Core team behind ARAMBH MUN 2026' },
+    { enabled: true, img: '/assets/images/gallery/i6.jpg', tag: 'TEAMING-UP', title: 'PROTEST-MEMBERS', sub: 'FRESHERS SKIT BEHIND THE SCENES' },
     /* ── CARD 07 ─ Crisis Committee ─────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i7.jpg',  tag: 'Crisis Committee',   title: 'Crisis Directive Review',        sub: 'Emergency session — high-stakes deliberations' },
+    { enabled: true, img: '/assets/images/gallery/i7.jpg', tag: 'MEMBERS BRIEFING', title: 'MONTHLY CLUB MEET', sub: 'FACULTY CO-ORDINATORS LEADING THE DISCUSSION' },
     /* ── CARD 08 ─ Day 1 ────────────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i8.jpg',  tag: 'Day 1',              title: 'Delegate Registration',          sub: 'Sign-in & placard distribution desk' },
+    { enabled: true, img: '/assets/images/gallery/i8.jpg', tag: 'Day 1', title: 'ARAMBH MUN 2.0', sub: 'Flagship committee under the PRAVAH annual technofest' },
     /* ── CARD 09 ─ International Press ─────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i9.jpg',  tag: 'International Press',title: 'IP Committee at Work',           sub: 'Live reporting from the conference floor' },
+    { enabled: true, img: '/assets/images/gallery/i9.jpg', tag: 'AN EXTEMPORE COMPETITION', title: 'PICK & SPEAK', sub: 'WINNERS ALONG WITH JUDGES ON THE PODIUM' },
     /* ── CARD 10 ─ Grand Finale ─────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i10.jpg', tag: 'Grand Finale',       title: 'Conference Closing Photo',       sub: 'All delegates · Grand Hall staircase' },
+    { enabled: false, img: '/assets/images/gallery/i10.jpg', tag: 'Grand Finale', title: 'Conference Closing Photo', sub: 'All delegates · Grand Hall staircase' },
     /* ── CARD 11 ─ Chairperson ──────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i11.jpg', tag: 'Chairperson',        title: 'Chair at the Dais',              sub: 'Presiding over the General Assembly' },
+    { enabled: false, img: '/assets/images/gallery/i11.jpg', tag: 'Chairperson', title: 'Chair at the Dais', sub: 'Presiding over the General Assembly' },
     /* ── CARD 12 ─ Networking ───────────────────────────── */
-    { enabled: true,  img: '/assets/images/gallery/i12.jpg', tag: 'Networking',         title: 'MUN Networking Dinner',          sub: 'Delegates connect over the closing gala' },
+    { enabled: false, img: '/assets/images/gallery/i12.jpg', tag: 'Networking', title: 'MUN Networking Dinner', sub: 'Delegates connect over the closing gala' },
 ];
 
 /* Only active cards are rendered */
 const CARDS = ALL_CARDS.filter(c => c.enabled);
-const N     = CARDS.length;
+const N = CARDS.length;
 
 /* ── Carousel config ── */
-const SLOT_PX   = 290;   // horizontal distance between card centres (px)
-const MAX_SLOT  = 3;     // slots ±3 are visible; beyond that = hidden
+const SLOT_PX = 290;   // horizontal distance between card centres (px)
+const MAX_SLOT = 3;     // slots ±3 are visible; beyond that = hidden
 
 /* ── State ── */
 let currentIndex = 0;
-let cardEls      = [];
-let dotEls       = [];
+let cardEls = [];
+let dotEls = [];
 let prevBtn, nextBtn;
-let isAnimating  = false;
+let isAnimating = false;
 let manualNavTimer = 0;
 
 /* ════════════════════════════════════════════════════════
@@ -69,13 +69,13 @@ function buildGallery() {
     /* Stage: all cards sit here, centred via position:absolute */
     const stage = document.createElement('div');
     stage.className = 'gallery-stage';
-    stage.id        = 'galleryStage';
+    stage.id = 'galleryStage';
 
     CARDS.forEach((c, i) => {
         const card = document.createElement('div');
-        card.className   = 'gallery-card' + (i === 0 ? ' is-active' : '');
+        card.className = 'gallery-card' + (i === 0 ? ' is-active' : '');
         card.dataset.idx = i;
-        card.innerHTML   = `
+        card.innerHTML = `
             <img src="${c.img}" alt="${c.title}" loading="${i < 2 ? 'eager' : 'lazy'}">
             <div class="gallery-card-overlay"></div>
             <div class="gallery-card-content">
@@ -161,24 +161,24 @@ function getSlot(i) {
 /* Apply GSAP transform to every card based on its slot */
 function updateCarousel(animated = true) {
     cardEls.forEach((card, i) => {
-        const slot    = getSlot(i);
+        const slot = getSlot(i);
         const absSlot = Math.abs(slot);
         const visible = absSlot <= MAX_SLOT;
 
         /* Position along X axis, with slight curve (y offset) */
-        const x       = slot * SLOT_PX;
-        const y       = absSlot === 0 ? 0 : absSlot === 1 ? 14 : absSlot === 2 ? 26 : 34;
-        const scale   = absSlot === 0 ? 1.06 : absSlot === 1 ? 0.88 : absSlot === 2 ? 0.76 : 0.66;
-        const bright  = absSlot === 0 ? 1    : absSlot === 1 ? 0.75 : absSlot === 2 ? 0.55 : 0.4;
+        const x = slot * SLOT_PX;
+        const y = absSlot === 0 ? 0 : absSlot === 1 ? 14 : absSlot === 2 ? 26 : 34;
+        const scale = absSlot === 0 ? 1.06 : absSlot === 1 ? 0.88 : absSlot === 2 ? 0.76 : 0.66;
+        const bright = absSlot === 0 ? 1 : absSlot === 1 ? 0.75 : absSlot === 2 ? 0.55 : 0.4;
         const opacity = visible ? 1 : 0;
-        const zIndex  = MAX_SLOT + 2 - absSlot;
+        const zIndex = MAX_SLOT + 2 - absSlot;
 
         gsap.to(card, {
             x, y, scale, opacity,
-            filter:          `brightness(${bright})`,
+            filter: `brightness(${bright})`,
             zIndex,
-            duration:        animated ? 0.55 : 0,
-            ease:            'power3.out',
+            duration: animated ? 0.55 : 0,
+            ease: 'power3.out',
             transformOrigin: 'center center',
         });
     });
@@ -221,11 +221,11 @@ function initScrollDrive() {
 
     function onScroll() {
         if (Date.now() < manualNavTimer) return;
-        const rect     = section.getBoundingClientRect();
+        const rect = section.getBoundingClientRect();
         const scrolled = -rect.top;
         if (scrolled < 0) return;
         const progress = Math.max(0, Math.min(1, scrolled / scrollTravel));
-        const idx      = Math.round(progress * (N - 1));
+        const idx = Math.round(progress * (N - 1));
         if (idx !== lastIdx) {
             lastIdx = idx;
             goTo(idx);
@@ -243,7 +243,7 @@ function initScrollDrive() {
 function buildLightbox() {
     const lb = document.createElement('div');
     lb.className = 'gallery-lightbox';
-    lb.id        = 'galleryLightbox';
+    lb.id = 'galleryLightbox';
     lb.setAttribute('role', 'dialog');
     lb.setAttribute('aria-modal', 'true');
     lb.innerHTML = `
@@ -260,29 +260,31 @@ function buildLightbox() {
         </div>`;
     document.body.appendChild(lb);
 
-    document.getElementById('lbClose').addEventListener('click',    closeLightbox);
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
     document.getElementById('lbBackdrop').addEventListener('click', closeLightbox);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 }
 
 function openLightbox(i) {
     const c = CARDS[i];
-    document.getElementById('lbImg').src           = c.img;
-    document.getElementById('lbImg').alt           = c.title;
+    document.getElementById('lbImg').src = c.img;
+    document.getElementById('lbImg').alt = c.title;
     document.getElementById('lbTitle').textContent = c.title;
-    document.getElementById('lbSub').textContent   = c.sub;
+    document.getElementById('lbSub').textContent = c.sub;
 
     const lb = document.getElementById('galleryLightbox');
     lb.classList.add('is-open');
-    gsap.fromTo(lb,      { opacity: 0 },           { opacity: 1, duration: .28, ease: 'power2.out' });
-    gsap.fromTo('#lbFrame', { scale: .88, y: 24 }, { scale: 1,   y: 0,  duration: .38, ease: 'back.out(1.6)' });
+    gsap.fromTo(lb, { opacity: 0 }, { opacity: 1, duration: .28, ease: 'power2.out' });
+    gsap.fromTo('#lbFrame', { scale: .88, y: 24 }, { scale: 1, y: 0, duration: .38, ease: 'back.out(1.6)' });
     document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
     const lb = document.getElementById('galleryLightbox');
-    gsap.to(lb,         { opacity: 0, duration: .22, ease: 'power2.in',
-        onComplete: () => { lb.classList.remove('is-open'); document.body.style.overflow = ''; } });
+    gsap.to(lb, {
+        opacity: 0, duration: .22, ease: 'power2.in',
+        onComplete: () => { lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+    });
     gsap.to('#lbFrame', { scale: .9, y: 16, duration: .22, ease: 'power2.in' });
 }
 
@@ -293,7 +295,7 @@ function initKeyboard() {
     document.addEventListener('keydown', e => {
         if (document.getElementById('galleryLightbox')?.classList.contains('is-open')) return;
         if (e.key === 'ArrowRight') goTo(currentIndex + 1);
-        if (e.key === 'ArrowLeft')  goTo(currentIndex - 1);
+        if (e.key === 'ArrowLeft') goTo(currentIndex - 1);
     });
 }
 
@@ -314,11 +316,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* Entrance: cards fade + drift up */
     gsap.from(cardEls, {
-        opacity:  0,
-        y:        30,
-        stagger:  0.04,
+        opacity: 0,
+        y: 30,
+        stagger: 0.04,
         duration: 0.6,
-        ease:     'power3.out',
+        ease: 'power3.out',
     });
 
     /* Back-to-top */
