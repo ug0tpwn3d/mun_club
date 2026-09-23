@@ -17,29 +17,29 @@
    ──────────────────────────────────────────────────────────*/
 const ALL_CARDS = [
     /* ── CARD 01 ─ Committee Sessions ───────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i1.jpg', tag: 'MUN CLUN IN HEADLINES', title: 'MUN PRESS CONFERENCE', sub: 'Winners along with Judges and Faculty Co-ordinators' },
+    { enabled: true, img: '../assets/images/gallery/i1.jpg', tag: 'MUN CLUN IN HEADLINES', title: 'MUN PRESS CONFERENCE', sub: 'Winners along with Judges and Faculty Co-ordinators' },
     /* ── CARD 02 ─ Oratory ──────────────────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i2.jpg', tag: 'WINNERS', title: 'TEAM SPIRIT', sub: 'Grouped together for a photograph' },
+    { enabled: true, img: '../assets/images/gallery/i2.jpg', tag: 'WINNERS', title: 'TEAM SPIRIT', sub: 'Grouped together for a photograph' },
     /* ── CARD 03 ─ Opening Ceremony ─────────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i3.jpg', tag: 'CLUB EVENT', title: 'MIC WARZ - PREPARED SPEECH COMPETITION', sub: 'Institute Level Event' },
+    { enabled: true, img: '../assets/images/gallery/i3.jpg', tag: 'CLUB EVENT', title: 'MIC WARZ - PREPARED SPEECH COMPETITION', sub: 'Institute Level Event' },
     /* ── CARD 04 ─ Valedictory ──────────────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i4.jpg', tag: 'MUN OPEN DEBATE', title: 'Best Delegate Award', sub: 'Gavel trophy presentation on stage' },
+    { enabled: true, img: '../assets/images/gallery/i4.jpg', tag: 'MUN OPEN DEBATE', title: 'Best Delegate Award', sub: 'Gavel trophy presentation on stage' },
     /* ── CARD 05 ─ Diplomacy ────────────────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i5.jpg', tag: 'FRESHERS ORIENTATION', title: 'GEZ-Z PROTEST SKIT', sub: 'Club memebers engaging with freshers on stage via a skit.' },
+    { enabled: true, img: '../assets/images/gallery/i5.jpg', tag: 'FRESHERS ORIENTATION', title: 'GEZ-Z PROTEST SKIT', sub: 'Club memebers engaging with freshers on stage via a skit.' },
     /* ── CARD 06 ─ Leadership ───────────────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i6.jpg', tag: 'TEAMING-UP', title: 'PROTEST-MEMBERS', sub: 'FRESHERS SKIT BEHIND THE SCENES' },
+    { enabled: true, img: '../assets/images/gallery/i6.jpg', tag: 'TEAMING-UP', title: 'PROTEST-MEMBERS', sub: 'FRESHERS SKIT BEHIND THE SCENES' },
     /* ── CARD 07 ─ Crisis Committee ─────────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i7.jpg', tag: 'MEMBERS BRIEFING', title: 'MONTHLY CLUB MEET', sub: 'FACULTY CO-ORDINATORS LEADING THE DISCUSSION' },
+    { enabled: true, img: '../assets/images/gallery/i7.jpg', tag: 'MEMBERS BRIEFING', title: 'MONTHLY CLUB MEET', sub: 'FACULTY CO-ORDINATORS LEADING THE DISCUSSION' },
     /* ── CARD 08 ─ Day 1 ────────────────────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i8.jpg', tag: 'Day 1', title: 'ARAMBH MUN 2.0', sub: 'Flagship committee under the PRAVAH annual technofest' },
+    { enabled: true, img: '../assets/images/gallery/i8.jpg', tag: 'Day 1', title: 'ARAMBH MUN 2.0', sub: 'Flagship committee under the PRAVAH annual technofest' },
     /* ── CARD 09 ─ International Press ─────────────────── */
-    { enabled: true, img: '/assets/images/gallery/i9.jpg', tag: 'AN EXTEMPORE COMPETITION', title: 'PICK & SPEAK', sub: 'WINNERS ALONG WITH JUDGES ON THE PODIUM' },
+    { enabled: true, img: '../assets/images/gallery/i9.jpg', tag: 'AN EXTEMPORE COMPETITION', title: 'PICK & SPEAK', sub: 'WINNERS ALONG WITH JUDGES ON THE PODIUM' },
     /* ── CARD 10 ─ Grand Finale ─────────────────────────── */
-    { enabled: false, img: '/assets/images/gallery/i10.jpg', tag: 'Grand Finale', title: 'Conference Closing Photo', sub: 'All delegates · Grand Hall staircase' },
+    { enabled: false, img: '../assets/images/gallery/i10.jpg', tag: 'Grand Finale', title: 'Conference Closing Photo', sub: 'All delegates · Grand Hall staircase' },
     /* ── CARD 11 ─ Chairperson ──────────────────────────── */
-    { enabled: false, img: '/assets/images/gallery/i11.jpg', tag: 'Chairperson', title: 'Chair at the Dais', sub: 'Presiding over the General Assembly' },
+    { enabled: false, img: '../assets/images/gallery/i11.jpg', tag: 'Chairperson', title: 'Chair at the Dais', sub: 'Presiding over the General Assembly' },
     /* ── CARD 12 ─ Networking ───────────────────────────── */
-    { enabled: false, img: '/assets/images/gallery/i12.jpg', tag: 'Networking', title: 'MUN Networking Dinner', sub: 'Delegates connect over the closing gala' },
+    { enabled: false, img: '../assets/images/gallery/i12.jpg', tag: 'Networking', title: 'MUN Networking Dinner', sub: 'Delegates connect over the closing gala' },
 ];
 
 /* Only active cards are rendered */

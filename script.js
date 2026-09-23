@@ -21,7 +21,7 @@ if (typeof Lenis !== 'undefined') {
 }
 
 // Home check: only the homepage hero has a transparent nav
-const isHome = document.body.classList.contains('page-home') || window.location.pathname === '/' || window.location.pathname.endsWith('/index.html');
+const isHome = document.body.classList.contains('page-home') || window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/mun_club/') || window.location.pathname.endsWith('/mun_club/index.html');
 const nav = document.querySelector('.nav');
 if (!isHome && nav) {
   nav.classList.add('nav--scrolled');
@@ -318,4 +318,22 @@ if (sectionLabels.length && typeof gsap !== 'undefined' && typeof ScrollTrigger 
 if (typeof ScrollTrigger !== 'undefined') {
   addEventListener('resize', () => ScrollTrigger.refresh());
   addEventListener('load', () => ScrollTrigger.refresh());
+}
+// Handle direct arrival with hash (e.g. index.html#communicate from another page)
+if (window.location.hash) {
+  const hash = window.location.hash;
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      try {
+        const target = document.querySelector(hash);
+        if (target) {
+          if (lenis) {
+            lenis.scrollTo(target);
+          } else {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      } catch (_) {}
+    }, document.getElementById('preloader') ? 1800 : 100);
+  });
 }

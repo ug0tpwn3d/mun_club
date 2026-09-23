@@ -8,6 +8,30 @@ const IGNORE_DIRS = new Set(['.git', '.agent', '.gemini', 'node_modules', 'compo
 
 let updatedCount = 0;
 
+function getDepth(filePath) {
+    const rel = path.relative(__dirname, filePath).replace(/\\/g, '/');
+    const parts = rel.split('/');
+    return parts.length - 1;
+}
+
+function getPrefix(depth) {
+    if (depth === 0) return '';
+    if (depth === 1) return '../';
+    if (depth === 2) return '../../';
+    throw new Error('Unexpected depth ' + depth);
+}
+
+function getFooterForFile(filePath) {
+    const depth = getDepth(filePath);
+    const prefix = getPrefix(depth);
+    const isIndex = path.basename(filePath) === 'index.html' && depth === 0;
+    const contactLink = isIndex ? '#communicate' : `${prefix}index.html#communicate`;
+
+    return footerTemplate
+        .replace(/{{ROOT}}/g, prefix)
+        .replace(/{{CONTACT_LINK}}/g, contactLink);
+}
+
 function syncDir(currentDir) {
     const entries = fs.readdirSync(currentDir, { withFileTypes: true });
 
@@ -21,7 +45,8 @@ function syncDir(currentDir) {
             const content = fs.readFileSync(filePath, 'utf8');
 
             if (footerRegex.test(content)) {
-                const updated = content.replace(footerRegex, footerTemplate);
+                const adaptedFooter = getFooterForFile(filePath);
+                const updated = content.replace(footerRegex, adaptedFooter);
                 if (updated !== content) {
                     fs.writeFileSync(filePath, updated, 'utf8');
                     const relPath = path.relative(__dirname, filePath).replace(/\\/g, '/');
