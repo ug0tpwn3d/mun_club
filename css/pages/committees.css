@@ -90,6 +90,15 @@ html {
     padding: .75rem 1.6rem;
 }
 
+.comm-actions {
+    margin-top: 2rem;
+}
+
+.anchor-offset {
+    position: relative;
+    top: -110px;
+}
+
 /* ── Section Headers ── */
 .comm-section-header {
     text-align: center;
@@ -207,7 +216,7 @@ html {
     position: relative;
     width: 100%;
     height: 600px;
-    background: #0f1012;
+    background: var(--black-2);
 }
 
 .drive-iframe-frame iframe {
@@ -215,7 +224,7 @@ html {
     height: 100%;
     border: none;
     display: block;
-    background: #0f1012;
+    background: var(--black-2);
 }
 
 .drive-embed-footer {

@@ -223,7 +223,7 @@ body.reg-page {
 
 .reg-field input,
 .reg-field select {
-    background: #0e0e11;
+    background: var(--black);
     border: 1px solid var(--line-soft);
     color: var(--cream);
     font-family: var(--font-sans);
@@ -256,7 +256,7 @@ body.reg-page {
 .reg-field select:focus {
     border-color: var(--orange);
     box-shadow: 0 0 0 2px rgba(255, 106, 26, 0.25);
-    background: #141419;
+    background: var(--black-2);
 }
 
 .reg-field input::placeholder {
@@ -369,7 +369,7 @@ body.reg-page {
 }
 
 .reg-submit-btn:hover {
-    background: #ff7d2b;
+    background: var(--orange-soft);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(255, 106, 26, 0.45);
 }
@@ -432,7 +432,7 @@ body.reg-page {
 }
 
 .reg-success-box {
-    background: #0e0e11;
+    background: var(--black);
     border: 1px solid var(--line-soft);
     border-radius: 8px;
     padding: 1.4rem;
@@ -490,7 +490,7 @@ body.reg-page {
 }
 
 .reg-success-btn-primary:hover {
-    background: #ff7d2b;
+    background: var(--orange-soft);
     transform: translateY(-2px);
 }
 
