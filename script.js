@@ -164,16 +164,38 @@ if (statEls.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'u
   });
 }
 
-// Committees: pinned horizontal scroll (desktop only)
+// Committees: pinned horizontal scroll (desktop only, when cards overflow viewport)
 const track = document.getElementById('committeeTrack');
-if (track && window.innerWidth > 768 && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  const getScroll = () => track.scrollWidth - innerWidth;
-  gsap.to(track, {
-    x: () => -getScroll(), ease: 'none',
-    scrollTrigger: {
-      trigger: '.committees', start: 'top top',
-      end: () => '+=' + getScroll(),
-      pin: true, pinSpacing: true, scrub: 1, invalidateOnRefresh: true,
+if (track && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  ScrollTrigger.matchMedia({
+    '(min-width: 769px)': function () {
+      const getScroll = () => Math.max(0, track.scrollWidth - window.innerWidth);
+      if (track.scrollWidth > window.innerWidth + 20) {
+        const tween = gsap.to(track, {
+          x: () => -getScroll(),
+          ease: 'none',
+          scrollTrigger: {
+            id: 'commTrackPin',
+            trigger: '.committees',
+            start: 'top top',
+            end: () => '+=' + getScroll(),
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+        return () => {
+          if (tween.scrollTrigger) tween.scrollTrigger.kill();
+          tween.kill();
+          gsap.set(track, { clearProps: 'transform' });
+        };
+      } else {
+        gsap.set(track, { clearProps: 'transform' });
+      }
+    },
+    '(max-width: 768px)': function () {
+      gsap.set(track, { clearProps: 'transform' });
     },
   });
 }

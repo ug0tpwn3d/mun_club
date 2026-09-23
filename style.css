@@ -648,20 +648,25 @@ a {
     color: var(--black);
     position: relative;
     z-index: 10;
+    overflow: hidden;
 }
 
 .committees-pin {
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    padding: clamp(3.5rem, 7vh, 6rem) 0;
+    box-sizing: border-box;
 }
 
 .committees-head {
     padding: 0 8vw;
-    margin-bottom: 2.5rem;
+    margin-bottom: clamp(1.8rem, 3.5vh, 2.8rem);
     z-index: 2;
 }
 
@@ -669,6 +674,7 @@ a {
     font-family: var(--font-serif);
     font-size: clamp(2.4rem, 6vw, 5rem);
     font-weight: 900;
+    line-height: 1.08;
 }
 
 .committees-title em {
@@ -679,70 +685,102 @@ a {
 
 .committee-track {
     display: flex;
-    gap: 4vw;
+    gap: clamp(1.5rem, 3.5vw, 2.5rem);
     padding: 0 8vw;
     will-change: transform;
+    align-items: stretch;
 }
 
 .comm-card {
     flex: 0 0 auto;
-    width: min(62vw, 520px);
-    height: 58vh;
+    width: min(65vw, 520px);
+    min-height: clamp(450px, 58vh, 560px);
+    height: auto;
     background: var(--black);
     color: var(--cream);
-    border-radius: 8px;
-    padding: 2.6rem;
+    border-radius: 12px;
+    padding: clamp(2rem, 3.5vw, 2.8rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Enhanced width & presence when only a single featured card is active */
+.comm-card:only-of-type {
+    width: min(84vw, 680px);
+    min-height: 440px;
+}
+
+.comm-card > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .comm-card::before {
     content: attr(data-num);
     position: absolute;
-    right: -1rem;
-    bottom: -3rem;
+    right: -0.5rem;
+    bottom: -2.2rem;
     font-family: var(--font-serif);
-    font-size: 14rem;
+    font-size: clamp(8rem, 15vw, 13rem);
     font-weight: 900;
-    color: color-mix(in srgb, var(--orange) 14%, transparent);
+    color: color-mix(in srgb, var(--orange) 13%, transparent);
     line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
 }
 
 .comm-agency {
-    font-size: .6rem;
-    letter-spacing: .4em;
+    font-size: .62rem;
+    letter-spacing: .35em;
     text-transform: uppercase;
     color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
 }
 
 .comm-card h3 {
     font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-size: clamp(1.45rem, 2.4vw, 2.25rem);
     font-weight: 700;
-    margin: 1rem 0;
-    line-height: 1.05;
+    margin: 0.5rem 0 0.9rem;
+    line-height: 1.15;
+    word-break: break-word;
 }
 
 .comm-card p {
-    font-size: .85rem;
-    line-height: 1.7;
+    font-size: clamp(0.84rem, 1.05vw, 0.92rem);
+    line-height: 1.65;
     color: var(--cream-dim);
-    max-width: 85%;
+    max-width: 92%;
+    margin-bottom: 1.5rem;
 }
 
 .difficulty {
     display: flex;
-    gap: .4rem;
-    margin-top: 1.2rem;
+    gap: .45rem;
+    margin-top: auto;
+    margin-bottom: 1.8rem;
+    position: relative;
+    z-index: 2;
+    align-items: center;
 }
 
 .difficulty i {
     width: 22px;
     height: 4px;
+    border-radius: 2px;
     background: var(--line-soft);
+    display: inline-block;
 }
 
 .difficulty i.on {
@@ -751,15 +789,29 @@ a {
 
 .comm-register {
     align-self: flex-start;
+    flex-shrink: 0;
     font-size: .68rem;
-    letter-spacing: .3em;
+    letter-spacing: .25em;
     text-transform: uppercase;
     background: var(--orange);
     color: var(--black);
-    padding: .9rem 1.8rem;
+    padding: .85rem 1.8rem;
     border-radius: 99px;
     text-decoration: none;
     font-weight: 700;
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+}
+
+.comm-register:hover {
+    background: #ff7d2b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 106, 26, 0.35);
 }
 
 /* ============ Conference ============ */
@@ -2160,20 +2212,46 @@ body:has(.nav--mobile-open) {
     }
 }
 
-/* Committees — disable pinned scroll on mobile, stack cards cleanly */
+/* Committees — responsive layout across all viewports */
+@media (max-width: 992px) {
+    .comm-card {
+        width: min(72vw, 540px);
+        min-height: 440px;
+        padding: 2.2rem 2rem;
+    }
+
+    .comm-card:only-of-type {
+        width: min(84vw, 600px);
+    }
+
+    .comm-card h3 {
+        font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+    }
+
+    .difficulty {
+        margin-bottom: 1.6rem;
+    }
+}
+
 @media (max-width: 768px) {
     .committees {
-        padding: 4rem 0 3rem;
+        padding: 4.5rem 0 3.5rem;
     }
 
     .committees-pin {
+        min-height: auto;
         height: auto;
         padding: 0;
+        overflow: visible;
     }
 
     .committees-head {
         padding: 0 6vw;
         margin-bottom: 2rem;
+    }
+
+    .committees-title {
+        font-size: clamp(2.2rem, 8vw, 3.4rem);
     }
 
     .committee-track {
@@ -2185,12 +2263,108 @@ body:has(.nav--mobile-open) {
         transform: none !important;
     }
 
-    .comm-card {
+    .comm-card,
+    .comm-card:only-of-type {
         width: 100% !important;
         height: auto;
         min-height: auto;
-        padding: 2rem 1.5rem;
+        padding: 2.2rem 1.8rem;
         transform: none !important;
+    }
+
+    .comm-card h3 {
+        font-size: clamp(1.35rem, 5.5vw, 1.85rem);
+        margin: 0.6rem 0 0.9rem;
+        line-height: 1.18;
+    }
+
+    .comm-card p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        max-width: 100%;
+        margin-bottom: 1.4rem;
+    }
+
+    .difficulty {
+        margin-top: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    .comm-register {
+        align-self: flex-start;
+        padding: 0.85rem 1.6rem;
+        font-size: 0.65rem;
+    }
+
+    .comm-card::before {
+        font-size: clamp(6.5rem, 25vw, 9.5rem);
+        right: -0.5rem;
+        bottom: -1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .committees {
+        padding: 3.5rem 0 2.5rem;
+    }
+
+    .committees-head {
+        padding: 0 5vw;
+        margin-bottom: 1.5rem;
+    }
+
+    .committee-track {
+        padding: 0 5vw;
+        gap: 1.25rem;
+    }
+
+    .comm-card {
+        padding: 1.8rem 1.25rem;
+        border-radius: 10px;
+    }
+
+    .comm-agency {
+        font-size: 0.58rem;
+        letter-spacing: 0.25em;
+    }
+
+    .comm-card h3 {
+        font-size: clamp(1.22rem, 5.6vw, 1.5rem);
+        margin: 0.5rem 0 0.75rem;
+        line-height: 1.2;
+    }
+
+    .comm-card p {
+        font-size: 0.82rem;
+        line-height: 1.55;
+        margin-bottom: 1.25rem;
+    }
+
+    .difficulty {
+        margin-top: auto;
+        margin-bottom: 1.25rem;
+        gap: 0.35rem;
+    }
+
+    .difficulty i {
+        width: 18px;
+        height: 3.5px;
+    }
+
+    .comm-register {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 0.85rem 1.2rem;
+        font-size: 0.64rem;
+        letter-spacing: 0.2em;
+    }
+
+    .comm-card::before {
+        font-size: 5.5rem;
+        right: -0.25rem;
+        bottom: -1rem;
+        opacity: 0.55;
     }
 }
 
