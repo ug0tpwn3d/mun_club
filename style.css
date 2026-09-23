@@ -918,13 +918,14 @@ a {
     color: var(--cream);
     border-radius: 6px;
     padding: 1.4rem;
-    transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
-    will-change: transform, opacity;
+    border: 1px solid transparent;
+    transition: box-shadow .3s var(--ease-out), border-color .3s var(--ease-out);
+    will-change: box-shadow, border-color;
 }
 
 .sec-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px color-mix(in srgb, var(--black) 20%, transparent);
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--black) 35%, transparent);
+    border-color: color-mix(in srgb, var(--orange) 30%, transparent);
 }
 
 .sec-flag {

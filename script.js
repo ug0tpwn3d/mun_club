@@ -226,6 +226,7 @@ if (secCards.length && document.querySelector('.secretariat') && typeof gsap !==
   gsap.from(secCards, {
     y: 30, opacity: 0,
     duration: 0.6, stagger: 0.08, ease: 'power2.out',
+    clearProps: 'transform',
     scrollTrigger: { trigger: '.secretariat', start: 'top 80%', once: true },
   });
 }
