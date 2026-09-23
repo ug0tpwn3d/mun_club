@@ -69,12 +69,13 @@ if (!isHome && nav) {
 })();
 
 // Smooth anchor navigation
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
+document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((a) => {
   a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
-    if (!href || href === '#') return;
+    if (!href || href === '#' || href === '/#') return;
+    const selector = href.startsWith('/#') ? href.slice(1) : href;
     try {
-      const target = document.querySelector(href);
+      const target = document.querySelector(selector);
       if (target) {
         e.preventDefault();
         if (lenis) {
