@@ -105,18 +105,18 @@ if (dot && ring && typeof gsap !== 'undefined') {
 const preloader = document.getElementById('preloader');
 if (preloader && typeof gsap !== 'undefined') {
   gsap.timeline()
-    .to('.preloader-logo', { scale: 1, opacity: 1, duration: 0.35, ease: 'power2.out' })
-    .to('.preloader-tag', { opacity: 1, duration: 0.25 }, '-=.15')
-    .to('#preloader', { yPercent: -100, duration: 0.5, ease: 'power3.inOut', delay: 0.05 })
+    .to('.preloader-logo', { scale: 1, opacity: 1, duration: 0.6, ease: 'power3.out' })
+    .to('.preloader-tag', { opacity: 1, duration: 0.5 }, '-=.2')
+    .to('#preloader', { yPercent: -100, duration: 0.75, ease: 'power4.inOut', delay: 0.5 })
     .set('#preloader', { display: 'none' })
-    .from('.hero-title .line > span', { yPercent: 110, duration: 0.65, stagger: 0.08, ease: 'power3.out' }, '-=.35')
-    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, '-=.25')
-    .from('.piece', { scale: 0, opacity: 0, duration: 0.55, stagger: 0.05, ease: 'back.out(1.4)' }, '-=.35');
+    .from('.hero-title .line > span', { yPercent: 110, duration: 0.8, stagger: 0.1, ease: 'power4.out' }, '-=.4')
+    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=.3')
+    .from('.piece', { scale: 0, opacity: 0, duration: 0.7, stagger: 0.06, ease: 'back.out(1.5)' }, '-=.5');
 } else if (typeof gsap !== 'undefined' && document.querySelector('.hero-title')) {
   gsap.timeline()
-    .from('.hero-title .line > span', { yPercent: 110, duration: 0.65, stagger: 0.08, ease: 'power3.out' })
-    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, '-=.25')
-    .from('.piece', { scale: 0, opacity: 0, duration: 0.55, stagger: 0.05, ease: 'back.out(1.4)' }, '-=.35');
+    .from('.hero-title .line > span', { yPercent: 110, duration: 0.8, stagger: 0.1, ease: 'power4.out' })
+    .fromTo('.hero-action-group', { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=.3')
+    .from('.piece', { scale: 0, opacity: 0, duration: 0.7, stagger: 0.06, ease: 'back.out(1.5)' }, '-=.5');
 }
 
 // Exploded view: pieces scatter out of the hero on scroll
@@ -133,11 +133,20 @@ if (pieces.length && document.querySelector('.hero') && typeof gsap !== 'undefin
   });
 }
 
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle && document.querySelector('.hero') && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  gsap.to('.hero-title', {
-    scale: 0.88, opacity: 0, y: -80, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: '30% top', end: '85% top', scrub: true },
+// Hero section scroll: content floats upwards on the very least scrolling
+const heroContent = document.querySelector('.hero-center') || document.querySelector('.hero-title');
+if (heroContent && document.querySelector('.hero') && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.to(heroContent, {
+    scale: 0.86,
+    opacity: 0,
+    y: -130,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: '65% top',
+      scrub: true,
+    },
   });
 }
 
