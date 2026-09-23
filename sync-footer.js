@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const footerTemplate = fs.readFileSync(path.join(__dirname, 'components', 'footer.html'), 'utf8').trim();
-const footerRegex = /<footer class="site-footer">[\s\S]*?<\/footer>/;
+const footerRegex = /(?:[ \t]*<!--\s*Site Footer(?:\s*\(.*?\))?\s*-->\s*)*<footer class="site-footer">[\s\S]*?<\/footer>/;
 
 const IGNORE_DIRS = new Set(['.git', '.agent', '.gemini', 'node_modules', 'components']);
 
