@@ -1,4 +1,4 @@
-export const committeesData = [
+const committeesData = [
     {
         num: "01",
         agency: "United Nations · Beginner",

@@ -1,4 +1,4 @@
-export const resourcesData = [
+const resourcesData = [
     {
         category: "Category A: Foundations & Prep",
         items: [
