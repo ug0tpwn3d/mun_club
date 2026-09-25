@@ -16,13 +16,15 @@ const teamData = {
         }
     ],
     students: [
-        {
+        /*
+{
             role: "Student Co-ordinator",
             name: "Nishant Kumar",
             position: "V th Sem , CSE Department",
             quote: "Every portfolio is a passport. Use it well.",
             image: "#"
         },
+*/
         {
             role: "Student Co-ordinator",
             name: "Keshav Saini",
