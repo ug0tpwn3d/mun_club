@@ -329,11 +329,13 @@ a {
     height: .8rem;
 }
 
-.nav-item-dropdown:hover .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
+@media (min-width: 769px) {
+    .nav-item-dropdown:hover .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 .nav-dropdown-menu a {
@@ -1041,18 +1043,24 @@ a {
 }
 
 .sec-grid--row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1060px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@media (max-width: 1024px) {
-    .sec-grid--row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.sec-grid--row .sec-card {
+    flex: 1 1 260px;
+    max-width: 320px;
+    width: 100%;
 }
 
-@media (max-width: 600px) {
-    .sec-grid--row {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .sec-grid--row .sec-card {
+        max-width: 100%;
     }
 }
 
@@ -2118,16 +2126,19 @@ body:has(.nav--mobile-open) {
 
     .nav-links > li > a:not(.nav-cta):active {
         color: var(--orange);
-        padding-left: 0.4rem;
     }
 
     /* Submenu styling in mobile view */
-    .nav-item-dropdown .nav-dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: none;
+    .nav-item-dropdown .nav-dropdown-menu,
+    .nav-item-dropdown:hover .nav-dropdown-menu,
+    .nav-item-dropdown:focus-within .nav-dropdown-menu,
+    .nav-item-dropdown:active .nav-dropdown-menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        transition: none !important;
         background: rgba(255, 255, 255, 0.025);
         backdrop-filter: none;
         border: 1px solid var(--line-soft);
